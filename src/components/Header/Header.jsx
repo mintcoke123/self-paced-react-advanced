@@ -1,13 +1,20 @@
 import styles from '../../css/Header.module.css';
-import addButton from '../../assets/button/add-button.png';
+import { TEXT } from '../Constants/messages';
+import { BUTTON_ICONS } from '../Constants/icons';
 
 const Header = () => {
-  return(
+  return (
     <header className={styles.gnb}>
-    <h1 class={`${gnb__title} text-title`}>점심 뭐 먹지</h1>
-    <button type="button" class="gnb__button" aria-label="음식점 추가">
-      <img src={addButton} alt="음식점 추가"/>
-    </button>
-  </header>
+      <h1 className={`${styles.gnb__title} text-title`}>{TEXT.HEADER_TITLE}</h1>
+      <button
+        type="button"
+        className={styles.gnb__button}
+        aria-label={TEXT.ADD_BUTTON_ARIA_LABEL}
+      >
+        <img src={BUTTON_ICONS.ADD} alt={TEXT.ADD_BUTTON_ARIA_LABEL} />
+      </button>
+    </header>
   );
 };
+
+export default Header;
