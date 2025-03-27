@@ -1,9 +1,9 @@
-import RestaurantCard from './RestaurantCard';
 import styles from '../../css/Restaurant.module.css';
+import RestaurantCard from './RestaurantCard';
 
 const RestaurantList = ({ restaurants }) => {
   return (
-    <ul className={styles['restaurant-list']}>
+    <ul className={styles.restaurantList}>
       {restaurants.map(({ category, image, name, description }) => (
         <RestaurantCard
           key={name}
