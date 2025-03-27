@@ -5,12 +5,12 @@
   height: 64px;
 
   padding: 0 16px;
-
+  width: 100%;
   background-color: var(--primary-color);
 }
 
 .gnbTitle {
-  color: #fcfcfd;
+  color: #ffffff;
 }
 
 .gnbButton {

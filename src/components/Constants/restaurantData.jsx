@@ -1,6 +1,6 @@
 import { CATEGORY_ICONS } from './icons';
 
-export const RESTAURANTS_INFO = [
+export const RESTAURANTS_DATA = [
   {
     category: '한식',
     alt: '한식',
