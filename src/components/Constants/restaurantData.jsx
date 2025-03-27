@@ -1,5 +1,3 @@
-// constants/info.js
-
 import { CATEGORY_ICONS } from './icons';
 
 export const RESTAURANTS_INFO = [

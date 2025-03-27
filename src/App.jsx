@@ -1,15 +1,13 @@
+import HeaderContainer from "./containers/HeaderContainer";
+import MainContainer from "./containers/MainContainer";
+import AsideContainer from "./containers/AsideContainer";
+
 function App() {
   return (
     <>
-      <Header />
-      <main>
-        <CategoryFilter />
-        <RestaurantList />
-      </main>
-      <aside>
-        <RestaurantDetailModal />
-        <AddRestaurantModal />
-      </aside>
+      <HeaderContainer/>
+      <MainContainer/>
+      <AsideContainer/>
     </>
   );
 }
