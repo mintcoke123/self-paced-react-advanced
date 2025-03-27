@@ -9,11 +9,11 @@
   background-color: var(--primary-color);
 }
 
-.gnb__title {
+.gnbTitle {
   color: #fcfcfd;
 }
 
-.gnb__button {
+.gnbButton {
   height: 40px;
 
   border: none;
@@ -24,7 +24,7 @@
   cursor: pointer;
 }
 
-.gnb__button img {
+.gnbButton img {
   display: block;
   width: 40px;
   height: 40px;
