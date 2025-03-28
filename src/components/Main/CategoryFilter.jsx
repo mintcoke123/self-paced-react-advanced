@@ -1,4 +1,4 @@
-import styles from '../../css/Restaurant.module.css';
+import styles from '../../css/Category.module.css';
 import { RESTAURANT_CATEGORY_FILTER } from '../Constants/category';
 import { TEXT } from '../Constants/messages';
 

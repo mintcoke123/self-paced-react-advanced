@@ -2,13 +2,13 @@ import styles from '../../css/Modal.module.css';
 import { TEXT } from '../Constants/messages';
 import { RESTAURANT_CATEGORY_FILTER } from '../Constants/category';
 
-const AddRestaurantModal = ({ onSubmit }) => {
+const AddRestaurantModal = () => {
   return (
     <div className={styles.modal}>
       <div className={styles.modalBackdrop}></div>
       <div className={styles.modalContainer}>
         <h2 className={`${styles.modalTitle} text-title`}>{TEXT.MODAL_ADD_TITLE}</h2>
-        <form onSubmit={onSubmit}>
+        <form>
           {/* 카테고리 */}
           <div className={`${styles.formItem} ${styles.formItemRequired}`}>
             <label htmlFor="category" className="text-caption">카테고리</label>
@@ -31,16 +31,16 @@ const AddRestaurantModal = ({ onSubmit }) => {
           {/* 설명 */}
           <div className={styles.formItem}>
             <label htmlFor="description" className="text-caption">설명</label>
-            <textarea name="description" id="description" rows="5" />
+            <textarea name="description" id="description"  cols="30" rows="5"></textarea>
             <span className={`${styles.helpText} text-caption`}>
-              {TEXT.MODAL_DESCRIPTION_HELP}
+              {TEXT.MODAL_DESCRIPTION_FOOTER}
             </span>
           </div>
 
           {/* 추가 버튼 */}
           <div className={styles.buttonContainer}>
-            <button type="submit" className={`${styles.button} ${styles.buttonPrimary} text-caption`}>
-              {TEXT.MODAL_ADD_BUTTON}
+            <button className={`${styles.button} ${styles.buttonPrimary}`}>
+              {TEXT.MODAL_ADD_BUTTON_TEXT}
             </button>
           </div>
         </form>

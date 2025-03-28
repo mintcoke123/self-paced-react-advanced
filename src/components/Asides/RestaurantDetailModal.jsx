@@ -19,7 +19,7 @@ const RestaurantDetailModal = () => {
             type="button"
             className={`${styles.button} ${styles.buttonPrimary} text-caption`}
           >
-            {TEXT.MODAL_CLOSE_BUTTON}
+            {TEXT.CLOSE_BUTTON_TEXT}
           </button>
         </div>
       </div>
