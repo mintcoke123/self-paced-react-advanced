@@ -1,5 +1,5 @@
 import styles from '../../../css/Restaurant.module.css';
-import RestaurantCard from './RestaurantCard';
+import RestaurantComponent from './RestaurantComponent';
 import { RESTAURANTS_DATA } from '../../Constants/restaurantData';
 
 
@@ -7,10 +7,10 @@ const RestaurantList = () => {
   return (
     <ul className={styles.restaurantList}>
       {RESTAURANTS_DATA?.map(({ category, categoryIcon, name, description }) => (
-        <RestaurantCard
+        <RestaurantComponent
           key={name}
           category={category}
-          image={categoryIcon}
+          categoryIcon={categoryIcon}
           name={name}
           description={description}
         />
