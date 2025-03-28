@@ -11,7 +11,7 @@ const AddRestaurantModal = () => {
         <form>
           {/* 카테고리 */}
           <div className={`${styles.formItem} ${styles.formItemRequired}`}>
-            <label htmlFor="category" className="text-caption">카테고리</label>
+            <label htmlFor="category" className="text-caption">{TEXT.MODAL_CATEGORY_TEXT}</label>
             <select name="category" id="category" required>
               <option value="">{TEXT.MODAL_CATEGORY_PLACEHOLDER}</option>
               {RESTAURANT_CATEGORY_FILTER.map((category) => (
@@ -24,13 +24,13 @@ const AddRestaurantModal = () => {
 
           {/* 음식점 이름 */}
           <div className={`${styles.formItem} ${styles.formItemRequired}`}>
-            <label htmlFor="name" className="text-caption">이름</label>
+            <label htmlFor="name" className="text-caption">{TEXT.NAME_LABEL}</label>
             <input type="text" name="name" id="name" required />
           </div>
 
           {/* 설명 */}
           <div className={styles.formItem}>
-            <label htmlFor="description" className="text-caption">설명</label>
+            <label htmlFor="description" className="text-caption">{TEXT.DESCRIPTION_LABEL}</label>
             <textarea name="description" id="description"  cols="30" rows="5"></textarea>
             <span className={`${styles.helpText} text-caption`}>
               {TEXT.MODAL_DESCRIPTION_FOOTER}
