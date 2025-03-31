@@ -4,17 +4,17 @@ import CategoryFilter from "../components/Main/CategoryFilter";
 import { RESTAURANTS_DATA } from "../components/Constants/restaurantData";
 
 const MainContainer = () => {
-  const [category, setCategory] = useState("");
+  const [selectedCategory, setSelectedCategory] = useState("");
   const filteredRestaurants =
-    category === "" || category === "전체"
+    selectedCategory === "" || selectedCategory === "전체"
       ? RESTAURANTS_DATA
       : RESTAURANTS_DATA.filter(
-          (restaurant) => restaurant.category === category
+          (restaurant) => restaurant.category === selectedCategory
         );
 
   return (
     <main>
-      <CategoryFilter category={category} onChangeCategory={setCategory} />
+      <CategoryFilter selectedCategory={selectedCategory} setSelectedCategory={setSelectedCategory} />
       <RestaurantList restaurants={filteredRestaurants} />
     </main>
   );
