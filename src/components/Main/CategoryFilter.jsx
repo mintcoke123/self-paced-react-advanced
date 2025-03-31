@@ -5,7 +5,6 @@ import { TEXT } from "../Constants/messages";
 const CategoryFilter = ({ selectedCategory, setSelectedCategory }) => {
   const changeCategory = (event) => {
     setSelectedCategory(event.target.value);
-    console.log(`${event.target.value}`);
   };
 
   return (
