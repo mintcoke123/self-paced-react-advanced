@@ -1,0 +1,17 @@
+export const TEXT = {
+  TITLE: '점심 뭐 먹지',
+  HEADER_TITLE: '점심 뭐 먹지',
+  ADD_BUTTON_ARIA_LABEL: '음식점 추가',
+  CATEGORY_FILTER_ARIA_LABEL: '음식점 카테고리 필터',
+  RESTAURANT_DETAIL_TITLE: '음식점 이름',
+  RESTAURANT_DETAIL_DESCRIPTION: '음식점 소개 문구',
+  MODAL_ADD_TITLE: '새로운 음식점',
+  CATEGORY_LABEL: '카테고리',
+  MODAL_CATEGORY_PLACEHOLDER: '선택해 주세요',
+  NAME_LABEL: '이름',
+  NAME_PLACEHOLDER: '음식점 이름을 입력해 주세요',
+  DESCRIPTION_LABEL: '설명',
+  MODAL_DESCRIPTION_FOOTER: '메뉴 등 추가 정보를 입력해 주세요.',
+  MODAL_ADD_BUTTON_TEXT: '추가하기',
+  CLOSE_BUTTON_TEXT: '닫기',
+};
