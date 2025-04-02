@@ -1,3 +1,4 @@
+
 import styles from "../../css/Category.module.css";
 import { RESTAURANT_CATEGORY_FILTER } from "../Constants/category";
 import { TEXT } from "../Constants/messages";
@@ -21,6 +22,7 @@ const CategoryFilter = ({ selectedCategory, setSelectedCategory }) => {
           return (
             <option key={selectedCategory} value={selectedCategory}>
               {selectedCategory}
+
             </option>
           );
         })}
@@ -29,4 +31,6 @@ const CategoryFilter = ({ selectedCategory, setSelectedCategory }) => {
   );
 };
 
+
 export default CategoryFilter;
+
