@@ -1,12 +1,12 @@
-import styles from '../../../css/Restaurant.module.css';
-import RestaurantComponent from './RestaurantComponent';
-import { RESTAURANTS_DATA } from '../../Constants/restaurantData';
 
+import styles from "../../../css/Restaurant.module.css";
+import RestaurantComponent from "./RestaurantComponent";
 
-const RestaurantList = () => {
+const RestaurantList = ({ restaurants }) => {
   return (
     <ul className={styles.restaurantList}>
-      {RESTAURANTS_DATA?.map(({ category, categoryIcon, name, description }) => (
+      {restaurants?.map(({ category, categoryIcon, name, description }) => (
+
         <RestaurantComponent
           key={name}
           category={category}
