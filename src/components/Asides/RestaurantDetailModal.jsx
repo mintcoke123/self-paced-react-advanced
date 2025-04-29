@@ -3,7 +3,7 @@ import { TEXT } from '../Constants/messages';
 
 const RestaurantDetailModal = () => {
   return (
-    <div className={styles.modal}>
+    <div className={styles.modalOpen}>
       <div className={styles.modalBackdrop}></div>
       <div className={styles.modalContainer}>
         <h2 className={`${styles.modalTitle} text-title`}>
