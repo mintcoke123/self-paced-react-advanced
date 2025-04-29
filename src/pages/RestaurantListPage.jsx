@@ -7,7 +7,7 @@ import { useState } from "react";
 
 function RestaurantListPage() {
   
-  const [isModalOpen,setIsModalOpen] = useState(true);
+  const [isModalOpen,setIsModalOpen] = useState(false);
   const [selectedRestaurant, setSelectedRestaurant] = useState();
 
   function closeModal(){
