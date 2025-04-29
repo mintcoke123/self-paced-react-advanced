@@ -1,7 +1,9 @@
 import styles from '../../css/Modal.module.css';
 import { TEXT } from '../Constants/messages';
 
-const RestaurantDetailModal = () => {
+const RestaurantDetailModal = ({closeModal}) => {
+  
+
   return (
     <div className={styles.modalOpen}>
       <div className={styles.modalBackdrop}></div>
@@ -17,6 +19,7 @@ const RestaurantDetailModal = () => {
         <div className={styles.buttonContainer}>
           <button
             type="button"
+            onClick={closeModal}
             className={`${styles.button} ${styles.buttonPrimary} text-caption`}
           >
             {TEXT.CLOSE_BUTTON_TEXT}

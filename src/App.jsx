@@ -1,15 +1,10 @@
-import HeaderContainer from "./containers/HeaderContainer";
-import MainContainer from "./containers/MainContainer";
-import AsideContainer from "./containers/AsideContainer";
+import RestaurantListPage from './pages/RestaurantListPage';
 import './App.css';
 
 function App() {
   return (
     <>
-      <HeaderContainer/>
-      <MainContainer/>
-      <AsideContainer/>
-      
+      <RestaurantListPage/>
     </>
   );
 }
