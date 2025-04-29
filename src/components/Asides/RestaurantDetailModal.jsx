@@ -6,7 +6,7 @@ const RestaurantDetailModal = ({closeModal}) => {
 
   return (
     <div className={styles.modalOpen}>
-      <div className={styles.modalBackdrop}></div>
+      <div className={styles.modalBackdrop} onClick={closeModal}></div>
       <div className={styles.modalContainer}>
         <h2 className={`${styles.modalTitle} text-title`}>
           {TEXT.MODAL_TITLE_PLACEHOLDER}
