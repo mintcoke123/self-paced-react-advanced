@@ -1,8 +1,8 @@
 import styles from '../../../css/Restaurant.module.css';
 
-const RestaurantComponent = ({ category, categoryIcon, name, description,openModal}) => {
+const RestaurantComponent = ({ category, categoryIcon, name, description,openDetailModal}) => {
   function handleButtonClick(){
-    openModal(name);
+    openDetailModal(name);
   }
 
   return (

@@ -1,10 +1,10 @@
 import RestaurantDetailModal from '../components/Asides/RestaurantDetailModal';
 import AddRestaurantModal from '../components/Asides/AddRestaurantModal';
 
-const AsideContainer = ({isModalOpen,closeModal,selectedRestaurant}) => {
+const AsideContainer = ({isDetailModalOpen,closeDetailModal,selectedRestaurant}) => {
   return (
     <aside>
-      {isModalOpen && <RestaurantDetailModal closeModal = {closeModal} selectedRestaurant = {selectedRestaurant}/>}
+      {isDetailModalOpen && <RestaurantDetailModal closeDetailModal = {closeDetailModal} selectedRestaurant = {selectedRestaurant}/>}
       <AddRestaurantModal />
     </aside>
   );

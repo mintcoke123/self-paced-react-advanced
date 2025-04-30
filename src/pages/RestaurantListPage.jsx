@@ -7,16 +7,16 @@ import { useState } from "react";
 
 function RestaurantListPage() {
   
-  const [isModalOpen,setIsModalOpen] = useState(false);
+  const [isDetailModalOpen,setIsDetailModalOpen] = useState(false);
   const [selectedRestaurant, setSelectedRestaurant] = useState();
 
-  function closeModal(){
-    setIsModalOpen(false);
+  function closeDetailModal(){
+    setIsDetailModalOpen(false);
   }
-  function openModal(name) {
+  function openDetailModal(name) {
     const clickedRestaurant = RESTAURANTS_DATA.find((restaurant) => restaurant.name === name);
     setSelectedRestaurant(clickedRestaurant);
-    setIsModalOpen(true);
+    setIsDetailModalOpen(true);
   }
 
 
@@ -25,11 +25,11 @@ function RestaurantListPage() {
     <>
       <HeaderContainer/>
       <MainContainer 
-        openModal = {openModal} 
+        openDetailModal = {openDetailModal} 
       />
       <AsideContainer 
-        isModalOpen = {isModalOpen} 
-        closeModal = {closeModal}
+        isDetailModalOpen = {isDetailModalOpen} 
+        closeDetailModal = {closeDetailModal}
         selectedRestaurant={selectedRestaurant}
       />
       

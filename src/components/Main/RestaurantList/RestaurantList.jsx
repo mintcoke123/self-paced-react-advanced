@@ -2,7 +2,7 @@
 import styles from "../../../css/Restaurant.module.css";
 import RestaurantComponent from "./RestaurantComponent";
 
-const RestaurantList = ({ filteredRestaurants,openModal}) => {
+const RestaurantList = ({ filteredRestaurants,openDetailModal}) => {
   return (
     <ul className={styles.restaurantList}>
       {filteredRestaurants?.map(({ category, categoryIcon, name, description }) => (
@@ -13,7 +13,7 @@ const RestaurantList = ({ filteredRestaurants,openModal}) => {
           categoryIcon={categoryIcon}
           name={name}
           description={description}
-          openModal={openModal}
+          openDetailModal={openDetailModal}
         />
       ))}
     </ul>
