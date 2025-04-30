@@ -1,9 +1,9 @@
 import Header from "../components/header/header";
 
-const HeaderContainer = () => {
+const HeaderContainer = ({openAddModal}) => {
   return (
     <>
-      <Header/>
+      <Header openAddModal = {openAddModal}/>
     </> 
   );
 };

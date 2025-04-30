@@ -2,10 +2,10 @@ import styles from '../../css/Modal.module.css';
 import { TEXT } from '../Constants/messages';
 import { RESTAURANT_CATEGORY_FILTER } from '../Constants/category';
 
-const AddRestaurantModal = () => {
+const AddRestaurantModal = ({closeAddModal}) => {
   return (
     <div className={styles.modal}>
-      <div className={styles.modalBackdrop}></div>
+      <div className={styles.modalBackdrop} onClick={closeAddModal}></div>
       <div className={styles.modalContainer}>
         <h2 className={`${styles.modalTitle} text-title`}>{TEXT.MODAL_ADD_TITLE}</h2>
         <form>
