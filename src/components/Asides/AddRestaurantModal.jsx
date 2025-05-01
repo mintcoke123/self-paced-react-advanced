@@ -3,6 +3,7 @@ import { TEXT } from '../Constants/messages';
 import { ADD_RESTAURANT_CATEGORY_FILTER } from '../Constants/category';
 import { CATEGORY_ICONS } from '../Constants/icons';
 import Modal from '../Common/Modal';
+import ModalButton from '../Common/ModalButton';
 
 const AddRestaurantModal = ({closeAddModal, addRestaurantData}) => {
   const handleSubmitRestaurantData = (event) =>{
@@ -57,11 +58,10 @@ const AddRestaurantModal = ({closeAddModal, addRestaurantData}) => {
           </div>
 
           {/* 추가 버튼 */}
-          <div className={styles.buttonContainer}>
-            <button type="submit" className={`${styles.button} ${styles.buttonPrimary}`}>
-              {TEXT.MODAL_ADD_BUTTON_TEXT}
-            </button>
-          </div>
+
+          <ModalButton buttonType={'submit'} buttonText={TEXT.MODAL_ADD_BUTTON_TEXT}>
+
+          </ModalButton>
         </form>
         </Modal>
   );
