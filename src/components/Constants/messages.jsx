@@ -8,6 +8,7 @@ export const TEXT = {
   MODAL_ADD_TITLE: '새로운 음식점',
   CATEGORY_LABEL: '카테고리',
   MODAL_CATEGORY_PLACEHOLDER: '선택해 주세요',
+  MODAL_CATEGORY_TEXT: '카테고리',
   NAME_LABEL: '이름',
   NAME_PLACEHOLDER: '음식점 이름을 입력해 주세요',
   DESCRIPTION_LABEL: '설명',

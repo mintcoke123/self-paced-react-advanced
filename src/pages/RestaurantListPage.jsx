@@ -30,6 +30,10 @@ function RestaurantListPage() {
     setIsAddModalOpen(true);
   }
 
+  function addRestaurantData(newRestaurant){
+    setRestaurantsData([...restaurantsData,newRestaurant]);
+  }
+
 
   return (
     <>
@@ -46,6 +50,7 @@ function RestaurantListPage() {
         selectedRestaurant={selectedRestaurant}
         isAddModalOpen = {isAddModalOpen}
         closeAddModal = {closeAddModal}
+        addRestaurantData = {addRestaurantData}
       />
       
     </>

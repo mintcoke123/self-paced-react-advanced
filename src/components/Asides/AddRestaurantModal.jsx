@@ -1,20 +1,39 @@
 import styles from '../../css/Modal.module.css';
 import { TEXT } from '../Constants/messages';
-import { RESTAURANT_CATEGORY_FILTER } from '../Constants/category';
+import { ADD_RESTAURANT_CATEGORY_FILTER } from '../Constants/category';
+import { CATEGORY_ICONS } from '../Constants/icons';
+import Modal from '../Common/Modal';
 
-const AddRestaurantModal = ({closeAddModal}) => {
+const AddRestaurantModal = ({closeAddModal, addRestaurantData}) => {
+  const handleSubmitRestaurantData = (event) =>{
+    event.preventDefault();
+
+    const formData = new FormData(event.target);
+    const category = formData.get("category");
+    const name = formData.get("name");
+    const description = formData.get("description");
+
+    const newRestaurant = {
+      id: Date.now(),
+      category: category,
+      name: name,
+      description: description,
+      alt: category,
+      categoryIcon: CATEGORY_ICONS[category],
+    };
+
+    addRestaurantData(newRestaurant);
+    closeAddModal();
+  }
   return (
-    <div className={styles.modal}>
-      <div className={styles.modalBackdrop} onClick={closeAddModal}></div>
-      <div className={styles.modalContainer}>
-        <h2 className={`${styles.modalTitle} text-title`}>{TEXT.MODAL_ADD_TITLE}</h2>
-        <form>
+    <Modal closeModal={closeAddModal} modalTitle={TEXT.MODAL_ADD_TITLE}>
+        <form onSubmit={handleSubmitRestaurantData}>
           {/* 카테고리 */}
           <div className={`${styles.formItem} ${styles.formItemRequired}`}>
             <label htmlFor="category" className="text-caption">{TEXT.MODAL_CATEGORY_TEXT}</label>
             <select name="category" id="category" required>
               <option value="">{TEXT.MODAL_CATEGORY_PLACEHOLDER}</option>
-              {RESTAURANT_CATEGORY_FILTER.map((category) => (
+              {ADD_RESTAURANT_CATEGORY_FILTER.map((category) => (
                 <option key={category} value={category}>
                   {category}
                 </option>
@@ -39,13 +58,12 @@ const AddRestaurantModal = ({closeAddModal}) => {
 
           {/* 추가 버튼 */}
           <div className={styles.buttonContainer}>
-            <button className={`${styles.button} ${styles.buttonPrimary}`}>
+            <button type="submit" className={`${styles.button} ${styles.buttonPrimary}`}>
               {TEXT.MODAL_ADD_BUTTON_TEXT}
             </button>
           </div>
         </form>
-      </div>
-    </div>
+        </Modal>
   );
 };
 
