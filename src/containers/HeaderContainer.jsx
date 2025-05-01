@@ -1,11 +1,9 @@
-import Header from "../components/header/header";
+import Header from '../components/header/header';
 
-const HeaderContainer = ({openAddModal}) => {
+function HeaderContainer({ openAddModal }) {
   return (
-    <>
-      <Header openAddModal = {openAddModal}/>
-    </> 
+    <Header openAddModal={openAddModal} />
   );
-};
+}
 
 export default HeaderContainer;

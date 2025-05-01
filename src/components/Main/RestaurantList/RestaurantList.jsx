@@ -1,11 +1,12 @@
+import styles from '../../../css/Restaurant.module.css';
+import RestaurantComponent from './RestaurantComponent';
 
-import styles from "../../../css/Restaurant.module.css";
-import RestaurantComponent from "./RestaurantComponent";
-
-const RestaurantList = ({ filteredRestaurants,openDetailModal}) => {
+function RestaurantList({ filteredRestaurants, openDetailModal }) {
   return (
     <ul className={styles.restaurantList}>
-      {filteredRestaurants?.map(({ category, categoryIcon, name, description }) => (
+      {filteredRestaurants?.map(({
+        category, categoryIcon, name, description,
+      }) => (
 
         <RestaurantComponent
           key={name}
@@ -18,6 +19,6 @@ const RestaurantList = ({ filteredRestaurants,openDetailModal}) => {
       ))}
     </ul>
   );
-};
+}
 
 export default RestaurantList;

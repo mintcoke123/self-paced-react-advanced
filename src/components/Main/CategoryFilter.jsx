@@ -1,9 +1,8 @@
+import styles from '../../css/Category.module.css';
+import { RESTAURANT_CATEGORY_FILTER } from '../Constants/category';
+import { TEXT } from '../Constants/messages';
 
-import styles from "../../css/Category.module.css";
-import { RESTAURANT_CATEGORY_FILTER } from "../Constants/category";
-import { TEXT } from "../Constants/messages";
-
-const CategoryFilter = ({ selectedCategory, setSelectedCategory }) => {
+function CategoryFilter({ selectedCategory, setSelectedCategory }) {
   const changeCategory = (event) => {
     setSelectedCategory(event.target.value);
   };
@@ -18,19 +17,15 @@ const CategoryFilter = ({ selectedCategory, setSelectedCategory }) => {
         value={selectedCategory}
         onChange={changeCategory}
       >
-        {RESTAURANT_CATEGORY_FILTER.map((selectedCategory) => {
-          return (
-            <option key={selectedCategory} value={selectedCategory}>
-              {selectedCategory}
+        {RESTAURANT_CATEGORY_FILTER.map((selectedCategory) => (
+          <option key={selectedCategory} value={selectedCategory}>
+            {selectedCategory}
 
-            </option>
-          );
-        })}
+          </option>
+        ))}
       </select>
     </section>
   );
-};
-
+}
 
 export default CategoryFilter;
-

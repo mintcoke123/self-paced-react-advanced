@@ -1,7 +1,9 @@
 import styles from '../../../css/Restaurant.module.css';
 
-const RestaurantComponent = ({ category, categoryIcon, name, description,openDetailModal}) => {
-  function handleButtonClick(){
+function RestaurantComponent({
+  category, categoryIcon, name, description, openDetailModal,
+}) {
+  function handleButtonClick() {
     openDetailModal(name);
   }
 
@@ -16,6 +18,6 @@ const RestaurantComponent = ({ category, categoryIcon, name, description,openDet
       </div>
     </li>
   );
-};
+}
 
 export default RestaurantComponent;

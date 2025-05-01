@@ -15,4 +15,4 @@ export const ADD_RESTAURANT_CATEGORY_FILTER = [
   '양식',
   '아시안',
   '기타',
-]
+];
