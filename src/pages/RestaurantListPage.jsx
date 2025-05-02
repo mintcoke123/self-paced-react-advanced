@@ -1,8 +1,8 @@
-import { useState } from 'react';
-import HeaderContainer from '../containers/HeaderContainer';
-import MainContainer from '../containers/MainContainer';
-import AsideContainer from '../containers/AsideContainer';
-import { RESTAURANTS_DATA } from '../components/Constants/restaurantData';
+import { useState } from "react";
+import HeaderContainer from "../containers/HeaderContainer";
+import MainContainer from "../containers/MainContainer";
+import AsideContainer from "../containers/AsideContainer";
+import { RESTAURANTS_DATA } from "../components/Constants/restaurantData";
 
 function RestaurantListPage() {
   const [isDetailModalOpen, setIsDetailModalOpen] = useState(false);
@@ -14,8 +14,10 @@ function RestaurantListPage() {
     setIsDetailModalOpen(false);
   }
 
-  function openDetailModal(name) {
-    const clickedRestaurant = restaurantsData.find((restaurant) => restaurant.name === name);
+  function openDetailModal(id) {
+    const clickedRestaurant = restaurantsData.find(
+      (restaurant) => restaurant.id === id
+    );
     setSelectedRestaurant(clickedRestaurant);
     setIsDetailModalOpen(true);
   }
@@ -34,9 +36,7 @@ function RestaurantListPage() {
 
   return (
     <>
-      <HeaderContainer
-        openAddModal={openAddModal}
-      />
+      <HeaderContainer openAddModal={openAddModal} />
       <MainContainer
         openDetailModal={openDetailModal}
         restaurantsData={restaurantsData}
@@ -49,7 +49,6 @@ function RestaurantListPage() {
         closeAddModal={closeAddModal}
         addRestaurantData={addRestaurantData}
       />
-
     </>
   );
 }
