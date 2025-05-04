@@ -1,7 +1,11 @@
 import styles from "../../../css/Restaurant.module.css";
 import RestaurantComponent from "./RestaurantComponent";
 
-function RestaurantList({ filteredRestaurants, openDetailModal }) {
+function RestaurantList({
+  filteredRestaurants,
+  selectClickedRestaurant,
+  setIsDetailModalOpen,
+}) {
   return (
     <ul className={styles.restaurantList}>
       {filteredRestaurants?.map(
@@ -13,7 +17,8 @@ function RestaurantList({ filteredRestaurants, openDetailModal }) {
             categoryIcon={categoryIcon}
             name={name}
             description={description}
-            openDetailModal={openDetailModal}
+            setIsDetailModalOpen={setIsDetailModalOpen}
+            selectClickedRestaurant={selectClickedRestaurant}
           />
         )
       )}

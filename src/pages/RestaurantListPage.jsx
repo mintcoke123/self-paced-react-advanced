@@ -10,24 +10,11 @@ function RestaurantListPage() {
   const [isAddModalOpen, setIsAddModalOpen] = useState(false);
   const [restaurantsData, setRestaurantsData] = useState(RESTAURANTS_DATA);
 
-  function closeDetailModal() {
-    setIsDetailModalOpen(false);
-  }
-
-  function openDetailModal(id) {
+  function selectClickedRestaurant(id) {
     const clickedRestaurant = restaurantsData.find(
       (restaurant) => restaurant.id === id
     );
     setSelectedRestaurant(clickedRestaurant);
-    setIsDetailModalOpen(true);
-  }
-
-  function closeAddModal() {
-    setIsAddModalOpen(false);
-  }
-
-  function openAddModal() {
-    setIsAddModalOpen(true);
   }
 
   function addRestaurantData(newRestaurant) {
@@ -36,17 +23,18 @@ function RestaurantListPage() {
 
   return (
     <>
-      <HeaderContainer openAddModal={openAddModal} />
+      <HeaderContainer setIsAddModalOpen={setIsAddModalOpen} />
       <MainContainer
-        openDetailModal={openDetailModal}
+        setIsDetailModalOpen={setIsDetailModalOpen}
+        selectClickedRestaurant={selectClickedRestaurant}
         restaurantsData={restaurantsData}
       />
       <AsideContainer
         isDetailModalOpen={isDetailModalOpen}
-        closeDetailModal={closeDetailModal}
+        setIsDetailModalOpen={setIsDetailModalOpen}
         selectedRestaurant={selectedRestaurant}
         isAddModalOpen={isAddModalOpen}
-        closeAddModal={closeAddModal}
+        setIsAddModalOpen={setIsAddModalOpen}
         addRestaurantData={addRestaurantData}
       />
     </>

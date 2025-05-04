@@ -1,17 +1,16 @@
-import styles from '../../css/Modal.module.css';
+import styles from "../../css/Modal.module.css";
 
-function ModalButton({ buttonOnClick, buttonType, buttonText }) {
+function ModalButton({ handleButtonOnClick, buttonType, buttonText }) {
   return (
     <div className={styles.buttonContainer}>
       <button
         type={buttonType}
-        onClick={buttonOnClick}
+        onClick={handleButtonOnClick}
         className={`${styles.button} ${styles.buttonPrimary} text-caption`}
       >
         {buttonText}
       </button>
     </div>
-
   );
 }
 

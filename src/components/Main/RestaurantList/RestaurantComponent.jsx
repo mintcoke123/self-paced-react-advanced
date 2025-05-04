@@ -6,14 +6,16 @@ function RestaurantComponent({
   categoryIcon,
   name,
   description,
-  openDetailModal,
+  selectClickedRestaurant,
+  setIsDetailModalOpen,
 }) {
-  function handleButtonClick() {
-    openDetailModal(id);
+  function handleShowClickedRestaurant() {
+    selectClickedRestaurant(id);
+    setIsDetailModalOpen(true);
   }
 
   return (
-    <li className={styles.restaurant} onClick={handleButtonClick}>
+    <li className={styles.restaurant} onClick={handleShowClickedRestaurant}>
       <div className={styles.restaurantCategory}>
         <img
           src={categoryIcon}

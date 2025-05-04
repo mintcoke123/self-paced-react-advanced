@@ -1,9 +1,7 @@
-import Header from '../components/header/header';
+import Header from "../components/header/header";
 
-function HeaderContainer({ openAddModal }) {
-  return (
-    <Header openAddModal={openAddModal} />
-  );
+function HeaderContainer({ setIsAddModalOpen }) {
+  return <Header setIsAddModalOpen={setIsAddModalOpen} />;
 }
 
 export default HeaderContainer;
