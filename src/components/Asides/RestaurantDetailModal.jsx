@@ -11,11 +11,11 @@ function RestaurantDetailModal({ setIsDetailModalOpen, selectedRestaurant }) {
   return (
     <Modal
       handleCloseModal={handleCloseModal}
-      modalTitle={selectedRestaurant?.name}
+      modalTitle={selectedRestaurant?.name || TEXT.RESTAURANT_NAME_NULL}
     >
       <div className={styles.restaurantInfo}>
         <p className={`${styles.restaurantInfoDescription} text-body`}>
-          {selectedRestaurant?.description || "식당 설명 없음"}
+          {selectedRestaurant?.description || TEXT.RESTAURANT_DESCRIPTION_NULL}
         </p>
       </div>
       <ModalButton
