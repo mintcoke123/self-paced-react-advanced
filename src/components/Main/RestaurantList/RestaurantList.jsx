@@ -1,3 +1,4 @@
+
 import styles from "../../../css/Restaurant.module.css";
 import RestaurantComponent from "./RestaurantComponent";
 
@@ -22,6 +23,7 @@ function RestaurantList({
           />
         )
       )}
+
     </ul>
   );
 }

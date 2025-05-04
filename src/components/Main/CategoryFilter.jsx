@@ -1,3 +1,4 @@
+
 import styles from "../../css/Category.module.css";
 import { RESTAURANT_CATEGORY_FILTER } from "../Constants/category";
 import { TEXT } from "../Constants/messages";
@@ -22,9 +23,12 @@ function CategoryFilter({ selectedCategory, setSelectedCategory }) {
             {selectedCategory}
           </option>
         ))}
+
       </select>
     </section>
   );
 }
 
+
 export default CategoryFilter;
+

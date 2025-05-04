@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 import RestaurantList from "../components/Main/RestaurantList/RestaurantList";
 import CategoryFilter from "../components/Main/CategoryFilter";
@@ -12,6 +13,7 @@ function MainContainer({
     selectedCategory === "" || selectedCategory === "전체"
       ? restaurantsData
       : restaurantsData.filter(
+
           (restaurant) => restaurant.category === selectedCategory
         );
 
@@ -31,3 +33,4 @@ function MainContainer({
 }
 
 export default MainContainer;
+
