@@ -6,17 +6,16 @@ import Modal from "../Common/Modal";
 import ModalButton from "../Common/ModalButton";
 
 function AddRestaurantModal({ setIsAddModalOpen, addRestaurantData }) {
+  const [category, setCategory] = useState("");
+  const [name, setName] = useState("");
+  const [description, setDescription] = useState("");
+
   function handleCloseModal() {
     setIsAddModalOpen(false);
   }
 
   const handleSubmitRestaurantData = (event) => {
     event.preventDefault();
-
-    const formData = new FormData(event.target);
-    const category = formData.get("category");
-    const name = formData.get("name");
-    const description = formData.get("description");
 
     const newRestaurant = {
       id: Date.now(),
@@ -41,7 +40,13 @@ function AddRestaurantModal({ setIsAddModalOpen, addRestaurantData }) {
           <label htmlFor="category" className="text-caption">
             {TEXT.MODAL_CATEGORY_TEXT}
           </label>
-          <select name="category" id="category" required>
+          <select
+            name="category"
+            id="category"
+            value={category}
+            onChange={(e) => setCategory(e.target.value)}
+            required
+          >
             <option value="">{TEXT.MODAL_CATEGORY_PLACEHOLDER}</option>
             {ADD_RESTAURANT_CATEGORY_FILTER.map((category) => (
               <option key={category} value={category}>
@@ -56,7 +61,14 @@ function AddRestaurantModal({ setIsAddModalOpen, addRestaurantData }) {
           <label htmlFor="name" className="text-caption">
             {TEXT.NAME_LABEL}
           </label>
-          <input type="text" name="name" id="name" required />
+          <input
+            type="text"
+            name="name"
+            id="name"
+            required
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+          />
         </div>
 
         {/* 설명 */}
@@ -64,7 +76,14 @@ function AddRestaurantModal({ setIsAddModalOpen, addRestaurantData }) {
           <label htmlFor="description" className="text-caption">
             {TEXT.DESCRIPTION_LABEL}
           </label>
-          <textarea name="description" id="description" cols="30" rows="5" />
+          <textarea
+            name="description"
+            id="description"
+            cols="30"
+            rows="5"
+            value={description}
+            onChange={(e) => setDescription(e.target.value)}
+          />
           <span className={`${styles.helpText} text-caption`}>
             {TEXT.MODAL_DESCRIPTION_FOOTER}
           </span>
