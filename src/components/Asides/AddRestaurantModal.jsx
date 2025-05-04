@@ -1,3 +1,4 @@
+import { useState } from "react";
 import styles from "../../css/Modal.module.css";
 import { TEXT } from "../Constants/messages";
 import { ADD_RESTAURANT_CATEGORY_FILTER } from "../Constants/category";
