@@ -1,8 +1,12 @@
 import styles from '../../../css/Restaurant.module.css';
 
-const RestaurantComponent = ({ category, categoryIcon, name, description }) => {
+const RestaurantComponent = ({ category, categoryIcon, name, description,openModal}) => {
+  function handleButtonClick(){
+    openModal(name);
+  }
+
   return (
-    <li className={styles.restaurant}>
+    <li className={styles.restaurant} onClick={handleButtonClick}>
       <div className={styles.restaurantCategory}>
         <img src={categoryIcon} alt={category} className={styles.categoryIcon} />
       </div>

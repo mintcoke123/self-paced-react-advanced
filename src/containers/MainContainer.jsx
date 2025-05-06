@@ -4,7 +4,8 @@ import RestaurantList from "../components/Main/RestaurantList/RestaurantList";
 import CategoryFilter from "../components/Main/CategoryFilter";
 import { RESTAURANTS_DATA } from "../components/Constants/restaurantData";
 
-const MainContainer = () => {
+
+const MainContainer = ({openModal}) => {
   const [selectedCategory, setSelectedCategory] = useState("");
   const filteredRestaurants =
     selectedCategory === "" || selectedCategory === "전체"
@@ -16,7 +17,8 @@ const MainContainer = () => {
   return (
     <main>
       <CategoryFilter selectedCategory={selectedCategory} setSelectedCategory={setSelectedCategory} />
-      <RestaurantList restaurants={filteredRestaurants} />
+      <RestaurantList filteredRestaurants={filteredRestaurants} openModal ={openModal} />
+
     </main>
   );
 };
