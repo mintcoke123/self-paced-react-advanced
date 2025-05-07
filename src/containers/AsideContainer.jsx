@@ -1,6 +1,7 @@
 import RestaurantDetailModal from "../components/Asides/RestaurantDetailModal";
 import AddRestaurantModal from "../components/Asides/AddRestaurantModal";
 
+
 function AsideContainer({
   isDetailModalOpen,
   setIsDetailModalOpen,
@@ -23,6 +24,7 @@ function AsideContainer({
           addRestaurantData={addRestaurantData}
         />
       )}
+
     </aside>
   );
 }

@@ -14,8 +14,10 @@ function RestaurantComponent({
     setIsDetailModalOpen(true);
   }
 
+
   return (
     <li className={styles.restaurant} onClick={handleShowClickedRestaurant}>
+
       <div className={styles.restaurantCategory}>
         <img
           src={categoryIcon}
