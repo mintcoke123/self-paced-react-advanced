@@ -3,23 +3,31 @@ import styles from "../../../css/Restaurant.module.css";
 import RestaurantComponent from "./RestaurantComponent";
 
 
-const RestaurantList = ({ filteredRestaurants,openModal}) => {
+function RestaurantList({
+  filteredRestaurants,
+  selectClickedRestaurant,
+  setIsDetailModalOpen,
+}) {
   return (
     <ul className={styles.restaurantList}>
-      {filteredRestaurants?.map(({ category, categoryIcon, name, description }) => (
+      {filteredRestaurants?.map(
+        ({ id, category, categoryIcon, name, description }) => (
+          <RestaurantComponent
+            id={id}
+            key={name}
+            category={category}
+            categoryIcon={categoryIcon}
+            name={name}
+            description={description}
+            setIsDetailModalOpen={setIsDetailModalOpen}
+            selectClickedRestaurant={selectClickedRestaurant}
+          />
+        )
+      )}
 
 
-        <RestaurantComponent
-          key={name}
-          category={category}
-          categoryIcon={categoryIcon}
-          name={name}
-          description={description}
-          openModal={openModal}
-        />
-      ))}
     </ul>
   );
-};
+}
 
 export default RestaurantList;

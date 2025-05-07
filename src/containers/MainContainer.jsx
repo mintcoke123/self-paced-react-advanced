@@ -2,26 +2,37 @@
 import { useState } from "react";
 import RestaurantList from "../components/Main/RestaurantList/RestaurantList";
 import CategoryFilter from "../components/Main/CategoryFilter";
-import { RESTAURANTS_DATA } from "../components/Constants/restaurantData";
 
 
-const MainContainer = ({openModal}) => {
+function MainContainer({
+  setIsDetailModalOpen,
+  selectClickedRestaurant,
+  restaurantsData,
+}) {
+
   const [selectedCategory, setSelectedCategory] = useState("");
   const filteredRestaurants =
     selectedCategory === "" || selectedCategory === "전체"
-      ? RESTAURANTS_DATA
-      : RESTAURANTS_DATA.filter(
+      ? restaurantsData
+      : restaurantsData.filter(
+
           (restaurant) => restaurant.category === selectedCategory
         );
 
   return (
     <main>
-      <CategoryFilter selectedCategory={selectedCategory} setSelectedCategory={setSelectedCategory} />
-      <RestaurantList filteredRestaurants={filteredRestaurants} openModal ={openModal} />
-
+      <CategoryFilter
+        selectedCategory={selectedCategory}
+        setSelectedCategory={setSelectedCategory}
+      />
+      <RestaurantList
+        setIsDetailModalOpen={setIsDetailModalOpen}
+        filteredRestaurants={filteredRestaurants}
+        selectClickedRestaurant={selectClickedRestaurant}
+      />
     </main>
   );
-};
+}
 
 export default MainContainer;
 

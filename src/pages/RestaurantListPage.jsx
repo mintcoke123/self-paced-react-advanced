@@ -1,38 +1,43 @@
+
+import { useState } from "react";
 import HeaderContainer from "../containers/HeaderContainer";
 import MainContainer from "../containers/MainContainer";
 import AsideContainer from "../containers/AsideContainer";
 import { RESTAURANTS_DATA } from "../components/Constants/restaurantData";
-import { useState } from "react";
-
 
 function RestaurantListPage() {
-  
-  const [isModalOpen,setIsModalOpen] = useState(true);
+  const [isDetailModalOpen, setIsDetailModalOpen] = useState(false);
   const [selectedRestaurant, setSelectedRestaurant] = useState();
+  const [isAddModalOpen, setIsAddModalOpen] = useState(false);
+  const [restaurantsData, setRestaurantsData] = useState(RESTAURANTS_DATA);
 
-  function closeModal(){
-    setIsModalOpen(false);
-  }
-  function openModal(name) {
-    const clickedRestaurant = RESTAURANTS_DATA.find((restaurant) => restaurant.name === name);
+  function selectClickedRestaurant(id) {
+    const clickedRestaurant = restaurantsData.find(
+      (restaurant) => restaurant.id === id
+    );
     setSelectedRestaurant(clickedRestaurant);
-    setIsModalOpen(true);
   }
 
-
+  function addRestaurantData(newRestaurant) {
+    setRestaurantsData([...restaurantsData, newRestaurant]);
+  }
 
   return (
     <>
-      <HeaderContainer/>
-      <MainContainer 
-        openModal = {openModal} 
+      <HeaderContainer setIsAddModalOpen={setIsAddModalOpen} />
+      <MainContainer
+        setIsDetailModalOpen={setIsDetailModalOpen}
+        selectClickedRestaurant={selectClickedRestaurant}
+        restaurantsData={restaurantsData}
       />
-      <AsideContainer 
-        isModalOpen = {isModalOpen} 
-        closeModal = {closeModal}
+      <AsideContainer
+        isDetailModalOpen={isDetailModalOpen}
+        setIsDetailModalOpen={setIsDetailModalOpen}
         selectedRestaurant={selectedRestaurant}
+        isAddModalOpen={isAddModalOpen}
+        setIsAddModalOpen={setIsAddModalOpen}
+        addRestaurantData={addRestaurantData}
       />
-      
     </>
   );
 }

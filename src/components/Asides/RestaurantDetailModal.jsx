@@ -1,33 +1,30 @@
-import styles from '../../css/Modal.module.css';
-import { TEXT } from '../Constants/messages';
+import styles from "../../css/Modal.module.css";
+import { TEXT } from "../Constants/messages";
+import Modal from "../Common/Modal";
+import ModalButton from "../Common/ModalButton";
 
-const RestaurantDetailModal = ({closeModal,selectedRestaurant}) => {
-  
+function RestaurantDetailModal({ setIsDetailModalOpen, selectedRestaurant }) {
+  function handleCloseModal() {
+    setIsDetailModalOpen(false);
+  }
 
   return (
-    <div className={styles.modalOpen}>
-      <div className={styles.modalBackdrop} onClick={closeModal}></div>
-      <div className={styles.modalContainer}>
-        <h2 className={`${styles.modalTitle} text-title`}>
-          {selectedRestaurant?.name || '식당 이름 등록 안됨'}
-        </h2>
-        <div className={styles.restaurantInfo}>
-          <p className={`${styles.restaurantInfoDescription} text-body`}>
-            {selectedRestaurant?.description || '식당 설명 없음'}
-          </p>
-        </div>
-        <div className={styles.buttonContainer}>
-          <button
-            type="button"
-            onClick={closeModal}
-            className={`${styles.button} ${styles.buttonPrimary} text-caption`}
-          >
-            {TEXT.CLOSE_BUTTON_TEXT}
-          </button>
-        </div>
+    <Modal
+      handleCloseModal={handleCloseModal}
+      modalTitle={selectedRestaurant?.name || TEXT.RESTAURANT_NAME_NULL}
+    >
+      <div className={styles.restaurantInfo}>
+        <p className={`${styles.restaurantInfoDescription} text-body`}>
+          {selectedRestaurant?.description || TEXT.RESTAURANT_DESCRIPTION_NULL}
+        </p>
       </div>
-    </div>
+      <ModalButton
+        handleButtonOnClick={handleCloseModal}
+        buttonType="button"
+        buttonText={TEXT.CLOSE_BUTTON_TEXT}
+      />
+    </Modal>
   );
-};
+}
 
 export default RestaurantDetailModal;

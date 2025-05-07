@@ -1,13 +1,32 @@
-import RestaurantDetailModal from '../components/Asides/RestaurantDetailModal';
-import AddRestaurantModal from '../components/Asides/AddRestaurantModal';
+import RestaurantDetailModal from "../components/Asides/RestaurantDetailModal";
+import AddRestaurantModal from "../components/Asides/AddRestaurantModal";
 
-const AsideContainer = ({isModalOpen,closeModal,selectedRestaurant}) => {
+
+function AsideContainer({
+  isDetailModalOpen,
+  setIsDetailModalOpen,
+  selectedRestaurant,
+  isAddModalOpen,
+  setIsAddModalOpen,
+  addRestaurantData,
+}) {
   return (
     <aside>
-      {isModalOpen && <RestaurantDetailModal closeModal = {closeModal} selectedRestaurant = {selectedRestaurant}/>}
-      <AddRestaurantModal />
+      {isDetailModalOpen && (
+        <RestaurantDetailModal
+          setIsDetailModalOpen={setIsDetailModalOpen}
+          selectedRestaurant={selectedRestaurant}
+        />
+      )}
+      {isAddModalOpen && (
+        <AddRestaurantModal
+          setIsAddModalOpen={setIsAddModalOpen}
+          addRestaurantData={addRestaurantData}
+        />
+      )}
+
     </aside>
   );
-};
+}
 
 export default AsideContainer;
