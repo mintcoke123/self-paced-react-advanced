@@ -14,4 +14,4 @@ const addRestaurantData = async (newRestaurant) => {
   });
 };
 
-export default { getRestaurants, addNewRestaurant };
+export default { getRestaurants, addRestaurantData };

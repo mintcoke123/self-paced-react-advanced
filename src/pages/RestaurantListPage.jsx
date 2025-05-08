@@ -3,6 +3,7 @@ import HeaderContainer from "../containers/HeaderContainer";
 import MainContainer from "../containers/MainContainer";
 import AsideContainer from "../containers/AsideContainer";
 import { RESTAURANTS_DATA } from "../components/Constants/restaurantData";
+import { addRestaurantData, getRestaurants } from "../api/api.js";
 
 function RestaurantListPage() {
   const [isDetailModalOpen, setIsDetailModalOpen] = useState(false);
