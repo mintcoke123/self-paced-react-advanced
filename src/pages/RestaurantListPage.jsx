@@ -1,15 +1,22 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import HeaderContainer from "../containers/HeaderContainer";
 import MainContainer from "../containers/MainContainer";
 import AsideContainer from "../containers/AsideContainer";
-import { RESTAURANTS_DATA } from "../components/Constants/restaurantData";
-import { addRestaurantData, getRestaurants } from "../api/api.js";
+import { addRestaurant, getRestaurants } from "../api/api.js";
 
 function RestaurantListPage() {
   const [isDetailModalOpen, setIsDetailModalOpen] = useState(false);
   const [selectedRestaurant, setSelectedRestaurant] = useState();
   const [isAddModalOpen, setIsAddModalOpen] = useState(false);
-  const [restaurantsData, setRestaurantsData] = useState(RESTAURANTS_DATA);
+  const [restaurantsData, setRestaurantsData] = useState();
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const data = await getRestaurants();
+      setRestaurantsData(data);
+    };
+    fetchData();
+  }, []);
 
   function selectClickedRestaurant(id) {
     const clickedRestaurant = restaurantsData.find(
@@ -18,8 +25,10 @@ function RestaurantListPage() {
     setSelectedRestaurant(clickedRestaurant);
   }
 
-  function addRestaurantData(newRestaurant) {
-    setRestaurantsData([...restaurantsData, newRestaurant]);
+  async function addRestaurantData(newRestaurant) {
+    await addRestaurant(newRestaurant);
+    const refreshedRestaurant = await getRestaurants();
+    setRestaurantsData(refreshedRestaurant);
   }
 
   return (

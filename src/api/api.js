@@ -1,10 +1,9 @@
-const getRestaurants = async () => {
+export async function getRestaurants() {
   const response = await fetch("http://localhost:3000/restaurants");
-  const data = await response.json();
-  return data;
-};
+  return response.json();
+}
 
-const addRestaurantData = async (newRestaurant) => {
+export async function addRestaurant(newRestaurant) {
   await fetch("http://localhost:3000/restaurants", {
     method: "POST",
     headers: {
@@ -12,6 +11,4 @@ const addRestaurantData = async (newRestaurant) => {
     },
     body: JSON.stringify(newRestaurant),
   });
-};
-
-export default { getRestaurants, addRestaurantData };
+}
