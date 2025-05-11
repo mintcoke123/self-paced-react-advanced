@@ -12,8 +12,12 @@ function RestaurantListPage() {
 
   useEffect(() => {
     const fetchData = async () => {
-      const data = await getRestaurants();
-      setRestaurantsData(data);
+      try {
+        const data = await getRestaurants();
+        setRestaurantsData(data);
+      } catch (error) {
+        alert("레스토랑 데이터를 불러오는 데 실패했습니다.");
+      }
     };
     fetchData();
   }, []);
