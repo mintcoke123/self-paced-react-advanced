@@ -2,6 +2,7 @@ import { CATEGORY_ICONS } from "../../Constants/icons";
 import styles from "../../../css/Restaurant.module.css";
 import RestaurantComponent from "./RestaurantComponent";
 
+
 function RestaurantList({
   filteredRestaurants,
   selectClickedRestaurant,
@@ -9,6 +10,7 @@ function RestaurantList({
 }) {
   return (
     <ul className={styles.restaurantList}>
+
       {filteredRestaurants?.map(({ id, category, name, description }) => (
         <RestaurantComponent
           id={id}
@@ -21,6 +23,7 @@ function RestaurantList({
           selectClickedRestaurant={selectClickedRestaurant}
         />
       ))}
+
     </ul>
   );
 }
