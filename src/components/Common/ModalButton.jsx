@@ -1,16 +1,39 @@
-import styles from "../../css/Modal.module.css";
+import styled from "styled-components";
+
+const ButtonContainer = styled.div`
+  display: flex;
+`;
+
+const button = styled.button`
+  width: 100%;
+  height: 44px;
+  margin-right: 16px;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+
+  &:last-child {
+    margin-right: 0;
+  }
+`;
+
+const ButtonPrimary = styled(button)`
+  background: var(--primary-color);
+  color: var(--grey-100);
+`;
 
 function ModalButton({ handleButtonOnClick, buttonType, buttonText }) {
   return (
-    <div className={styles.buttonContainer}>
-      <button
+    <ButtonContainer>
+      <ButtonPrimary
         type={buttonType}
         onClick={handleButtonOnClick}
-        className={`${styles.button} ${styles.buttonPrimary} text-caption`}
+        className="text-caption"
       >
         {buttonText}
-      </button>
-    </div>
+      </ButtonPrimary>
+    </ButtonContainer>
   );
 }
 

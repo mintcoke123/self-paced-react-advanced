@@ -1,7 +1,13 @@
+import styled from "styled-components";
 import { CATEGORY_ICONS } from "../../Constants/icons";
-import styles from "../../../css/Restaurant.module.css";
 import RestaurantComponent from "./RestaurantComponent";
 
+const RestaurantListContainer = styled.ul`
+  display: flex;
+  flex-direction: column;
+  padding: 0 16px;
+  margin: 16px 0;
+`;
 
 function RestaurantList({
   filteredRestaurants,
@@ -9,8 +15,7 @@ function RestaurantList({
   setIsDetailModalOpen,
 }) {
   return (
-    <ul className={styles.restaurantList}>
-
+    <RestaurantListContainer>
       {filteredRestaurants?.map(({ id, category, name, description }) => (
         <RestaurantComponent
           id={id}
@@ -23,8 +28,7 @@ function RestaurantList({
           selectClickedRestaurant={selectClickedRestaurant}
         />
       ))}
-
-    </ul>
+    </RestaurantListContainer>
   );
 }
 

@@ -1,7 +1,13 @@
-import styles from "../../css/Modal.module.css";
+import styled from "styled-components";
 import { TEXT } from "../Constants/messages";
 import Modal from "../Common/Modal";
 import ModalButton from "../Common/ModalButton";
+
+const RestaurantInfo = styled.div`
+  margin-bottom: 24px;
+`;
+
+const RestaurantInfoDescription = styled.p``;
 
 function RestaurantDetailModal({ setIsDetailModalOpen, selectedRestaurant }) {
   function handleCloseModal() {
@@ -13,11 +19,11 @@ function RestaurantDetailModal({ setIsDetailModalOpen, selectedRestaurant }) {
       handleCloseModal={handleCloseModal}
       modalTitle={selectedRestaurant?.name || TEXT.RESTAURANT_NAME_NULL}
     >
-      <div className={styles.restaurantInfo}>
-        <p className={`${styles.restaurantInfoDescription} text-body`}>
+      <RestaurantInfo>
+        <RestaurantInfoDescription className="text-body">
           {selectedRestaurant?.description || TEXT.RESTAURANT_DESCRIPTION_NULL}
-        </p>
-      </div>
+        </RestaurantInfoDescription>
+      </RestaurantInfo>
       <ModalButton
         handleButtonOnClick={handleCloseModal}
         buttonType="button"

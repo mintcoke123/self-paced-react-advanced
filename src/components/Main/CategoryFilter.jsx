@@ -1,7 +1,23 @@
-
-import styles from "../../css/Category.module.css";
+import styled from "styled-components";
 import { RESTAURANT_CATEGORY_FILTER } from "../Constants/category";
 import { TEXT } from "../Constants/messages";
+
+const RestaurantFilterContainer = styled.section`
+  display: flex;
+  justify-content: space-between;
+  padding: 0 16px;
+  margin-top: 24px;
+`;
+
+const RestaurantFilter = styled.select`
+  height: 44px;
+  min-width: 125px;
+  border: 1px solid #d0d5dd;
+  border-radius: 8px;
+  background: transparent;
+  font-size: 16px;
+  padding: 8px;
+`;
 
 function CategoryFilter({ selectedCategory, setSelectedCategory }) {
   const handleChangeCategory = (event) => {
@@ -9,26 +25,22 @@ function CategoryFilter({ selectedCategory, setSelectedCategory }) {
   };
 
   return (
-    <section className={styles.restaurantFilterContainer}>
-      <select
+    <RestaurantFilterContainer>
+      <RestaurantFilter
         name="category"
         id="category-filter"
-        className={styles.restaurantFilter}
         aria-label={TEXT.CATEGORY_FILTER_ARIA_LABEL}
         value={selectedCategory}
         onChange={handleChangeCategory}
       >
-        {RESTAURANT_CATEGORY_FILTER.map((selectedCategory) => (
-          <option key={selectedCategory} value={selectedCategory}>
-            {selectedCategory}
+        {RESTAURANT_CATEGORY_FILTER.map((category) => (
+          <option key={category} value={category}>
+            {category}
           </option>
         ))}
-
-      </select>
-    </section>
+      </RestaurantFilter>
+    </RestaurantFilterContainer>
   );
 }
 
-
 export default CategoryFilter;
-
