@@ -1,22 +1,31 @@
-import styles from '../../../css/Restaurant.module.css';
-import RestaurantComponent from './RestaurantComponent';
-import { RESTAURANTS_DATA } from '../../Constants/restaurantData';
+import { CATEGORY_ICONS } from "../../Constants/icons";
+import styles from "../../../css/Restaurant.module.css";
+import RestaurantComponent from "./RestaurantComponent";
 
 
-const RestaurantList = () => {
+function RestaurantList({
+  filteredRestaurants,
+  selectClickedRestaurant,
+  setIsDetailModalOpen,
+}) {
   return (
     <ul className={styles.restaurantList}>
-      {RESTAURANTS_DATA?.map(({ category, categoryIcon, name, description }) => (
+
+      {filteredRestaurants?.map(({ id, category, name, description }) => (
         <RestaurantComponent
+          id={id}
           key={name}
           category={category}
-          categoryIcon={categoryIcon}
+          categoryIcon={CATEGORY_ICONS[category]}
           name={name}
           description={description}
+          setIsDetailModalOpen={setIsDetailModalOpen}
+          selectClickedRestaurant={selectClickedRestaurant}
         />
       ))}
+
     </ul>
   );
-};
+}
 
 export default RestaurantList;

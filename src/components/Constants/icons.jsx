@@ -7,12 +7,12 @@ import CategoryEtcIcon from '../../assets/category/category-etc.png';
 import AddButtonIcon from '../../assets/button/add-button.png';
 
 export const CATEGORY_ICONS = {
-  '한식': CategoryKoreanIcon,
-  '중식': CategoryChineseIcon,
-  '일식': CategoryJapaneseIcon,
-  '양식': CategoryWesternIcon,
-  '아시안': CategoryAsianIcon,
-  '기타': CategoryEtcIcon,
+  한식: CategoryKoreanIcon,
+  중식: CategoryChineseIcon,
+  일식: CategoryJapaneseIcon,
+  양식: CategoryWesternIcon,
+  아시안: CategoryAsianIcon,
+  기타: CategoryEtcIcon,
 };
 
 export const BUTTON_ICONS = {
