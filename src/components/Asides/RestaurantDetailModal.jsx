@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { TEXT } from "../../constants/messages";
 import Modal from "../Common/Modal";
-import ModalButton from "../Common/ModalButton";
+import Button from "../Common/Button";
 import { Typography } from "../Common/Typography";
 
 const RestaurantInfo = styled.div`
@@ -23,7 +23,8 @@ function RestaurantDetailModal({ setIsDetailModalOpen, selectedRestaurant }) {
           {selectedRestaurant?.description || TEXT.RESTAURANT_DESCRIPTION_NULL}
         </Typography.Body>
       </RestaurantInfo>
-      <ModalButton
+      <Button
+        variant="modal"
         handleButtonOnClick={handleCloseModal}
         buttonType="button"
         buttonText={TEXT.CLOSE_BUTTON_TEXT}

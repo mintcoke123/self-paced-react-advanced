@@ -4,7 +4,7 @@ import { TEXT } from "../../constants/messages";
 import { ADD_RESTAURANT_CATEGORY_FILTER } from "../../constants/category";
 import { CATEGORY_ICONS } from "../../constants/icons";
 import Modal from "../Common/Modal";
-import ModalButton from "../Common/ModalButton";
+import Button from "../Common/Button";
 import { Typography } from "../Common/Typography";
 
 const FormLabel = styled.label`
@@ -142,8 +142,10 @@ function AddRestaurantModal({ setIsAddModalOpen, addRestaurantData }) {
           </HelpText>
         </FormItem>
 
-        <ModalButton
+        <Button
+          variant="modal"
           buttonType="submit"
+          handleButtonOnClick={handleSubmitRestaurantData}
           buttonText={TEXT.MODAL_ADD_BUTTON_TEXT}
         />
       </form>
