@@ -28,7 +28,9 @@ function Modal({ handleCloseModal, children, modalTitle }) {
     <ModalWrapper>
       <ModalBackdrop onClick={handleCloseModal} />
       <ModalContainer>
-        <Typography.ModalTitle>{modalTitle}</Typography.ModalTitle>
+        <Typography.Title style={{ marginBottom: "36px" }}>
+          {modalTitle}
+        </Typography.Title>
         {children}
       </ModalContainer>
     </ModalWrapper>

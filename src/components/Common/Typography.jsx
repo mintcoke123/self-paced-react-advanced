@@ -6,10 +6,6 @@ const Title = styled.h2`
   font-weight: 600;
 `;
 
-const ModalTitle = styled(Title)`
-  margin-bottom: 36px;
-`;
-
 const Subtitle = styled.h3`
   font-size: 18px;
   line-height: 28px;
@@ -30,7 +26,6 @@ const Caption = styled.span`
 
 export const Typography = {
   Title,
-  ModalTitle,
   Subtitle,
   Body,
   Caption,
