@@ -4,7 +4,7 @@ const ButtonContainer = styled.div`
   display: flex;
 `;
 
-const button = styled.button`
+const Button = styled.button`
   width: 100%;
   height: 44px;
   margin-right: 16px;
@@ -18,7 +18,7 @@ const button = styled.button`
   }
 `;
 
-const ButtonPrimary = styled(button)`
+const ButtonPrimary = styled(Button)`
   background: var(--primary-color);
   color: var(--grey-100);
 `;
