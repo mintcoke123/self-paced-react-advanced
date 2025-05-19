@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { TEXT } from "../../constants/messages";
 import { BUTTON_ICONS } from "../../constants/icons";
+import { Typography } from "../Common/Typography";
 
 const Gnb = styled.header`
   display: flex;
@@ -12,8 +13,8 @@ const Gnb = styled.header`
   background-color: var(--primary-color);
 `;
 
-const GnbTitle = styled.h1`
-  color: #ffffff;
+const HeaderTitle = styled(Typography.Title)`
+  color: #fcfcfd;
 `;
 
 const GnbButton = styled.button`
@@ -39,7 +40,7 @@ function Header({ setIsAddModalOpen }) {
 
   return (
     <Gnb>
-      <GnbTitle className="text-title">{TEXT.HEADER_TITLE}</GnbTitle>
+      <HeaderTitle>{TEXT.HEADER_TITLE}</HeaderTitle>
       <GnbButton
         type="button"
         aria-label={TEXT.ADD_BUTTON_ARIA_LABEL}

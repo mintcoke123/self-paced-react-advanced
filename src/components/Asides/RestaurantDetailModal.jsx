@@ -2,12 +2,11 @@ import styled from "styled-components";
 import { TEXT } from "../../constants/messages";
 import Modal from "../Common/Modal";
 import ModalButton from "../Common/ModalButton";
+import { Typography } from "../Common/Typography";
 
 const RestaurantInfo = styled.div`
   margin-bottom: 24px;
 `;
-
-const RestaurantInfoDescription = styled.p``;
 
 function RestaurantDetailModal({ setIsDetailModalOpen, selectedRestaurant }) {
   function handleCloseModal() {
@@ -20,9 +19,9 @@ function RestaurantDetailModal({ setIsDetailModalOpen, selectedRestaurant }) {
       modalTitle={selectedRestaurant?.name || TEXT.RESTAURANT_NAME_NULL}
     >
       <RestaurantInfo>
-        <RestaurantInfoDescription className="text-body">
+        <Typography.Body>
           {selectedRestaurant?.description || TEXT.RESTAURANT_DESCRIPTION_NULL}
-        </RestaurantInfoDescription>
+        </Typography.Body>
       </RestaurantInfo>
       <ModalButton
         handleButtonOnClick={handleCloseModal}

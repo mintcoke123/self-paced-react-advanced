@@ -4,7 +4,6 @@ import MainContainer from "../components/Main/MainContainer";
 import AsideContainer from "../components/Asides/AsideContainer";
 import { addRestaurant, getRestaurants } from "../api/api.js";
 
-
 function RestaurantListPage() {
   const [isDetailModalOpen, setIsDetailModalOpen] = useState(false);
   const [selectedRestaurant, setSelectedRestaurant] = useState();
@@ -23,7 +22,6 @@ function RestaurantListPage() {
     fetchData();
   }, []);
 
-
   function selectClickedRestaurant(id) {
     const clickedRestaurant = restaurantsData.find(
       (restaurant) => restaurant.id === id
@@ -31,12 +29,10 @@ function RestaurantListPage() {
     setSelectedRestaurant(clickedRestaurant);
   }
 
-
   async function addRestaurantData(newRestaurant) {
     await addRestaurant(newRestaurant);
     const refreshedRestaurant = await getRestaurants();
     setRestaurantsData(refreshedRestaurant);
-
   }
 
   return (

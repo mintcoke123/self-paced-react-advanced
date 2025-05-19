@@ -1,10 +1,11 @@
 import styled from "styled-components";
+import { Typography } from "./Typography";
 
 const ButtonContainer = styled.div`
   display: flex;
 `;
 
-const Button = styled.button`
+const StyledButton = styled(Typography.Caption)`
   width: 100%;
   height: 44px;
   margin-right: 16px;
@@ -12,27 +13,23 @@ const Button = styled.button`
   border-radius: 8px;
   font-weight: 600;
   cursor: pointer;
+  background: var(--primary-color);
+  color: var(--grey-100);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
   &:last-child {
     margin-right: 0;
   }
 `;
 
-const ButtonPrimary = styled(Button)`
-  background: var(--primary-color);
-  color: var(--grey-100);
-`;
-
 function ModalButton({ handleButtonOnClick, buttonType, buttonText }) {
   return (
     <ButtonContainer>
-      <ButtonPrimary
-        type={buttonType}
-        onClick={handleButtonOnClick}
-        className="text-caption"
-      >
+      <StyledButton as="button" type={buttonType} onClick={handleButtonOnClick}>
         {buttonText}
-      </ButtonPrimary>
+      </StyledButton>
     </ButtonContainer>
   );
 }

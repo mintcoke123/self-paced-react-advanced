@@ -5,6 +5,7 @@ import { ADD_RESTAURANT_CATEGORY_FILTER } from "../../constants/category";
 import { CATEGORY_ICONS } from "../../constants/icons";
 import Modal from "../Common/Modal";
 import ModalButton from "../Common/ModalButton";
+import { Typography } from "../Common/Typography";
 
 const FormItem = styled.div`
   display: flex;
@@ -47,10 +48,6 @@ const FormItemRequired = styled(FormItem)`
   }
 `;
 
-const HelpText = styled.span`
-  color: var(--grey-300);
-`;
-
 function AddRestaurantModal({ setIsAddModalOpen, addRestaurantData }) {
   const [category, setCategory] = useState("");
   const [name, setName] = useState("");
@@ -83,9 +80,9 @@ function AddRestaurantModal({ setIsAddModalOpen, addRestaurantData }) {
     >
       <form onSubmit={handleSubmitRestaurantData}>
         <FormItemRequired>
-          <label htmlFor="category" className="text-caption">
+          <Typography.Caption as="label" htmlFor="category">
             {TEXT.MODAL_CATEGORY_TEXT}
-          </label>
+          </Typography.Caption>
           <select
             name="category"
             id="category"
@@ -103,9 +100,9 @@ function AddRestaurantModal({ setIsAddModalOpen, addRestaurantData }) {
         </FormItemRequired>
 
         <FormItemRequired>
-          <label htmlFor="name" className="text-caption">
+          <Typography.Caption as="label" htmlFor="name">
             {TEXT.NAME_LABEL}
-          </label>
+          </Typography.Caption>
           <input
             type="text"
             name="name"
@@ -117,9 +114,9 @@ function AddRestaurantModal({ setIsAddModalOpen, addRestaurantData }) {
         </FormItemRequired>
 
         <FormItem>
-          <label htmlFor="description" className="text-caption">
+          <Typography.Caption as="label" htmlFor="description">
             {TEXT.DESCRIPTION_LABEL}
-          </label>
+          </Typography.Caption>
           <textarea
             name="description"
             id="description"
@@ -128,9 +125,9 @@ function AddRestaurantModal({ setIsAddModalOpen, addRestaurantData }) {
             value={description}
             onChange={(e) => setDescription(e.target.value)}
           />
-          <HelpText className="text-caption">
+          <Typography.Caption>
             {TEXT.MODAL_DESCRIPTION_FOOTER}
-          </HelpText>
+          </Typography.Caption>
         </FormItem>
 
         <ModalButton
