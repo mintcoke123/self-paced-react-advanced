@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { Typography } from "./Typography";
 
-const ModalOpen = styled.div`
+const ModalWrapper = styled.div`
   display: flex;
 `;
 
@@ -25,13 +25,13 @@ const ModalContainer = styled.div`
 
 function Modal({ handleCloseModal, children, modalTitle }) {
   return (
-    <ModalOpen>
+    <ModalWrapper>
       <ModalBackdrop onClick={handleCloseModal} />
       <ModalContainer>
         <Typography.ModalTitle>{modalTitle}</Typography.ModalTitle>
         {children}
       </ModalContainer>
-    </ModalOpen>
+    </ModalWrapper>
   );
 }
 

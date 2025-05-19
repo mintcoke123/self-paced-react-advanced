@@ -7,46 +7,51 @@ import Modal from "../Common/Modal";
 import ModalButton from "../Common/ModalButton";
 import { Typography } from "../Common/Typography";
 
+const FormLabel = styled.label`
+  color: var(--grey-400);
+  font-size: 14px;
+  ${({ required }) =>
+    required &&
+    `
+    &::after {
+      padding-left: 4px;
+      color: var(--primary-color);
+      content: "*";
+    }
+  `}
+`;
+
+const FormInput = styled.input`
+  padding: 8px;
+  margin: 6px 0;
+  border: 1px solid var(--grey-200);
+  border-radius: 8px;
+  font-size: 16px;
+`;
+
+const FormTextarea = styled.textarea`
+  padding: 8px;
+  margin: 6px 0;
+  border: 1px solid var(--grey-200);
+  border-radius: 8px;
+  font-size: 16px;
+  resize: none;
+`;
+
+const FormSelect = styled.select`
+  padding: 8px;
+  margin: 6px 0;
+  border: 1px solid var(--grey-200);
+  border-radius: 8px;
+  font-size: 16px;
+  height: 44px;
+  color: var(--grey-300);
+`;
+
 const FormItem = styled.div`
   display: flex;
   flex-direction: column;
   margin-bottom: 36px;
-
-  label {
-    color: var(--grey-400);
-    font-size: 14px;
-    ${({ required }) =>
-      required &&
-      `
-      ::after {
-        padding-left: 4px;
-        color: var(--primary-color);
-        content: "*";
-      }
-    `}
-  }
-
-  input,
-  textarea,
-  select {
-    padding: 8px;
-    margin: 6px 0;
-    border: 1px solid var(--grey-200);
-    border-radius: 8px;
-    font-size: 16px;
-  }
-
-  textarea {
-    resize: none;
-  }
-
-  select {
-    height: 44px;
-    padding: 8px;
-    border: 1px solid var(--grey-200);
-    border-radius: 8px;
-    color: var(--grey-300);
-  }
 `;
 
 const HelpText = styled.span`
@@ -84,11 +89,11 @@ function AddRestaurantModal({ setIsAddModalOpen, addRestaurantData }) {
       modalTitle={TEXT.MODAL_ADD_TITLE}
     >
       <form onSubmit={handleSubmitRestaurantData}>
-        <FormItem required>
-          <label htmlFor="category">
+        <FormItem>
+          <FormLabel htmlFor="category" required>
             <Typography.Caption>카테고리</Typography.Caption>
-          </label>
-          <select
+          </FormLabel>
+          <FormSelect
             name="category"
             id="category"
             value={category}
@@ -101,14 +106,14 @@ function AddRestaurantModal({ setIsAddModalOpen, addRestaurantData }) {
                 {category}
               </option>
             ))}
-          </select>
+          </FormSelect>
         </FormItem>
 
-        <FormItem required>
-          <label htmlFor="name">
+        <FormItem>
+          <FormLabel htmlFor="name" required>
             <Typography.Caption>이름</Typography.Caption>
-          </label>
-          <input
+          </FormLabel>
+          <FormInput
             type="text"
             name="name"
             id="name"
@@ -119,10 +124,10 @@ function AddRestaurantModal({ setIsAddModalOpen, addRestaurantData }) {
         </FormItem>
 
         <FormItem>
-          <label htmlFor="description">
+          <FormLabel htmlFor="description">
             <Typography.Caption>설명</Typography.Caption>
-          </label>
-          <textarea
+          </FormLabel>
+          <FormTextarea
             name="description"
             id="description"
             cols="30"
