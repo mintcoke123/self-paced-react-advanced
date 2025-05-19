@@ -15,6 +15,15 @@ const FormItem = styled.div`
   label {
     color: var(--grey-400);
     font-size: 14px;
+    ${({ required }) =>
+      required &&
+      `
+      ::after {
+        padding-left: 4px;
+        color: var(--primary-color);
+        content: "*";
+      }
+    `}
   }
 
   input,
@@ -40,12 +49,8 @@ const FormItem = styled.div`
   }
 `;
 
-const FormItemRequired = styled(FormItem)`
-  label::after {
-    padding-left: 4px;
-    color: var(--primary-color);
-    content: "*";
-  }
+const HelpText = styled.span`
+  color: var(--grey-300);
 `;
 
 function AddRestaurantModal({ setIsAddModalOpen, addRestaurantData }) {
@@ -79,10 +84,10 @@ function AddRestaurantModal({ setIsAddModalOpen, addRestaurantData }) {
       modalTitle={TEXT.MODAL_ADD_TITLE}
     >
       <form onSubmit={handleSubmitRestaurantData}>
-        <FormItemRequired>
-          <Typography.Caption as="label" htmlFor="category">
-            {TEXT.MODAL_CATEGORY_TEXT}
-          </Typography.Caption>
+        <FormItem required>
+          <label htmlFor="category">
+            <Typography.Caption>카테고리</Typography.Caption>
+          </label>
           <select
             name="category"
             id="category"
@@ -97,12 +102,12 @@ function AddRestaurantModal({ setIsAddModalOpen, addRestaurantData }) {
               </option>
             ))}
           </select>
-        </FormItemRequired>
+        </FormItem>
 
-        <FormItemRequired>
-          <Typography.Caption as="label" htmlFor="name">
-            {TEXT.NAME_LABEL}
-          </Typography.Caption>
+        <FormItem required>
+          <label htmlFor="name">
+            <Typography.Caption>이름</Typography.Caption>
+          </label>
           <input
             type="text"
             name="name"
@@ -111,12 +116,12 @@ function AddRestaurantModal({ setIsAddModalOpen, addRestaurantData }) {
             value={name}
             onChange={(e) => setName(e.target.value)}
           />
-        </FormItemRequired>
+        </FormItem>
 
         <FormItem>
-          <Typography.Caption as="label" htmlFor="description">
-            {TEXT.DESCRIPTION_LABEL}
-          </Typography.Caption>
+          <label htmlFor="description">
+            <Typography.Caption>설명</Typography.Caption>
+          </label>
           <textarea
             name="description"
             id="description"
@@ -125,9 +130,11 @@ function AddRestaurantModal({ setIsAddModalOpen, addRestaurantData }) {
             value={description}
             onChange={(e) => setDescription(e.target.value)}
           />
-          <Typography.Caption>
-            {TEXT.MODAL_DESCRIPTION_FOOTER}
-          </Typography.Caption>
+          <HelpText>
+            <Typography.Caption>
+              메뉴 등 추가 정보를 입력해 주세요.
+            </Typography.Caption>
+          </HelpText>
         </FormItem>
 
         <ModalButton
