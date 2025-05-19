@@ -1,6 +1,6 @@
 import styled from "styled-components";
-import { TEXT } from "../Constants/messages";
-import { BUTTON_ICONS } from "../Constants/icons";
+import { TEXT } from "../../constants/messages";
+import { BUTTON_ICONS } from "../../constants/icons";
 
 const Gnb = styled.header`
   display: flex;

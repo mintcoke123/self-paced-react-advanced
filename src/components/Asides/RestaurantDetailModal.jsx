@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { TEXT } from "../Constants/messages";
+import { TEXT } from "../../constants/messages";
 import Modal from "../Common/Modal";
 import ModalButton from "../Common/ModalButton";
 

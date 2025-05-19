@@ -1,6 +1,6 @@
 import styled from "styled-components";
-import { RESTAURANT_CATEGORY_FILTER } from "../Constants/category";
-import { TEXT } from "../Constants/messages";
+import { RESTAURANT_CATEGORY_FILTER } from "../../constants/category";
+import { TEXT } from "../../constants/messages";
 
 const RestaurantFilterContainer = styled.section`
   display: flex;

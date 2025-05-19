@@ -1,4 +1,4 @@
-import { CATEGORY_ICONS } from "./icons";
+import { CATEGORY_ICONS } from "../constants/icons";
 
 export const RESTAURANTS_DATA = [
   {

@@ -1,8 +1,8 @@
 import { useState } from "react";
 import styled from "styled-components";
-import { TEXT } from "../Constants/messages";
-import { ADD_RESTAURANT_CATEGORY_FILTER } from "../Constants/category";
-import { CATEGORY_ICONS } from "../Constants/icons";
+import { TEXT } from "../../constants/messages";
+import { ADD_RESTAURANT_CATEGORY_FILTER } from "../../constants/category";
+import { CATEGORY_ICONS } from "../../constants/icons";
 import Modal from "../Common/Modal";
 import ModalButton from "../Common/ModalButton";
 

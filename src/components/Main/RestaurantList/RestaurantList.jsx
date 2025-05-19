@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { CATEGORY_ICONS } from "../../Constants/icons";
+import { CATEGORY_ICONS } from "../../../constants/icons";
 import RestaurantComponent from "./RestaurantComponent";
 
 const RestaurantListContainer = styled.ul`
