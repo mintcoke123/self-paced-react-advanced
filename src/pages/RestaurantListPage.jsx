@@ -1,8 +1,7 @@
-
 import { useEffect, useState } from "react";
-import HeaderContainer from "../containers/HeaderContainer";
-import MainContainer from "../containers/MainContainer";
-import AsideContainer from "../containers/AsideContainer";
+import HeaderContainer from "../components/Header/HeaderContainer";
+import MainContainer from "../components/Main/MainContainer";
+import AsideContainer from "../components/Asides/AsideContainer";
 import { addRestaurant, getRestaurants } from "../api/api.js";
 
 
@@ -10,7 +9,6 @@ function RestaurantListPage() {
   const [isDetailModalOpen, setIsDetailModalOpen] = useState(false);
   const [selectedRestaurant, setSelectedRestaurant] = useState();
   const [isAddModalOpen, setIsAddModalOpen] = useState(false);
-
   const [restaurantsData, setRestaurantsData] = useState();
 
   useEffect(() => {

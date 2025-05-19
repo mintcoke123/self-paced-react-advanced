@@ -1,5 +1,5 @@
-import RestaurantDetailModal from "../components/Asides/RestaurantDetailModal";
-import AddRestaurantModal from "../components/Asides/AddRestaurantModal";
+import RestaurantDetailModal from "./RestaurantDetailModal";
+import AddRestaurantModal from "./AddRestaurantModal";
 
 
 function AsideContainer({
