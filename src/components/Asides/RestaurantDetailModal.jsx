@@ -3,6 +3,7 @@ import { TEXT } from "../../constants/messages";
 import Modal from "../Common/Modal";
 import Button from "../Common/Button";
 import { Typography } from "../Common/Typography";
+import { Body } from "../Common/Typography";
 
 const RestaurantInfo = styled.div`
   margin-bottom: 24px;
@@ -19,9 +20,9 @@ function RestaurantDetailModal({ setIsDetailModalOpen, selectedRestaurant }) {
       modalTitle={selectedRestaurant?.name || TEXT.RESTAURANT_NAME_NULL}
     >
       <RestaurantInfo>
-        <Typography.Body>
+        <Body>
           {selectedRestaurant?.description || TEXT.RESTAURANT_DESCRIPTION_NULL}
-        </Typography.Body>
+        </Body>
       </RestaurantInfo>
       <Button
         variant="modal"

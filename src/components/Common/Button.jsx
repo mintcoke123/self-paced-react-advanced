@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { Typography } from "./Typography";
+import { Caption } from "./Typography";
 
 const getButtonStyles = (variant) => {
   switch (variant) {
@@ -54,7 +54,7 @@ const getButtonStyles = (variant) => {
   }
 };
 
-const StyledButton = styled(Typography.Caption)`
+const StyledButton = styled(Caption)`
   ${({ variant }) => {
     const styles = getButtonStyles(variant);
     return `

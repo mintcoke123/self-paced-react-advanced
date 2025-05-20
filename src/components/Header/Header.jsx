@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { TEXT } from "../../constants/messages";
 import { BUTTON_ICONS } from "../../constants/icons";
-import { Typography } from "../Common/Typography";
+import { Title } from "../Common/Typography";
 import Button from "../Common/Button";
 
 const Gnb = styled.header`
@@ -14,7 +14,7 @@ const Gnb = styled.header`
   background-color: var(--primary-color);
 `;
 
-const HeaderTitle = styled(Typography.Title)`
+const HeaderTitle = styled(Title)`
   color: #fcfcfd;
 `;
 

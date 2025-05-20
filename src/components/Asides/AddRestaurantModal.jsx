@@ -5,7 +5,7 @@ import { ADD_RESTAURANT_CATEGORY_FILTER } from "../../constants/category";
 import { CATEGORY_ICONS } from "../../constants/icons";
 import Modal from "../Common/Modal";
 import Button from "../Common/Button";
-import { Typography } from "../Common/Typography";
+import { Caption } from "../Common/Typography";
 
 const FormLabel = styled.label`
   color: var(--grey-400);
@@ -91,7 +91,7 @@ function AddRestaurantModal({ setIsAddModalOpen, addRestaurantData }) {
       <form onSubmit={handleSubmitRestaurantData}>
         <FormItem>
           <FormLabel htmlFor="category" required>
-            <Typography.Caption>카테고리</Typography.Caption>
+            <Caption>카테고리</Caption>
           </FormLabel>
           <FormSelect
             name="category"
@@ -111,7 +111,7 @@ function AddRestaurantModal({ setIsAddModalOpen, addRestaurantData }) {
 
         <FormItem>
           <FormLabel htmlFor="name" required>
-            <Typography.Caption>이름</Typography.Caption>
+            <Caption>이름</Caption>
           </FormLabel>
           <FormInput
             type="text"
@@ -125,7 +125,7 @@ function AddRestaurantModal({ setIsAddModalOpen, addRestaurantData }) {
 
         <FormItem>
           <FormLabel htmlFor="description">
-            <Typography.Caption>설명</Typography.Caption>
+            <Caption>설명</Caption>
           </FormLabel>
           <FormTextarea
             name="description"
@@ -136,9 +136,7 @@ function AddRestaurantModal({ setIsAddModalOpen, addRestaurantData }) {
             onChange={(e) => setDescription(e.target.value)}
           />
           <HelpText>
-            <Typography.Caption>
-              메뉴 등 추가 정보를 입력해 주세요.
-            </Typography.Caption>
+            <Caption>{TEXT.ADD_RESTAURANT_DESCRIPTION_PLACEHOLDER}</Caption>
           </HelpText>
         </FormItem>
 
