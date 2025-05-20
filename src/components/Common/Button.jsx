@@ -7,27 +7,21 @@ const getButtonStyles = (variant) => {
       return {
         width: "auto",
         height: "40px",
-        marginRight: "0",
-        fontWeight: "normal",
         background: "transparent",
         color: "inherit",
-        fontSize: "24px",
-        cursor: "pointer",
         border: "none",
         borderRadius: "8px",
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
+        cursor: "pointer",
       };
     case "modal":
       return {
         width: "100%",
         height: "44px",
-        marginRight: "16px",
-        fontWeight: "600",
         background: "var(--primary-color)",
         color: "var(--grey-100)",
-        fontSize: "inherit",
         border: "none",
         borderRadius: "8px",
         display: "flex",
@@ -39,11 +33,8 @@ const getButtonStyles = (variant) => {
       return {
         width: "100%",
         height: "44px",
-        marginRight: "16px",
-        fontWeight: "600",
         background: "var(--primary-color)",
         color: "var(--grey-100)",
-        fontSize: "inherit",
         border: "none",
         borderRadius: "8px",
         display: "flex",
@@ -60,17 +51,14 @@ const StyledButton = styled(Caption)`
     return `
       width: ${styles.width};
       height: ${styles.height};
-      margin-right: ${styles.marginRight};
       border: ${styles.border};
       border-radius: ${styles.borderRadius};
-      font-weight: ${styles.fontWeight};
-      cursor: ${styles.cursor};
       background: ${styles.background};
       color: ${styles.color};
       display: ${styles.display};
       align-items: ${styles.alignItems};
       justify-content: ${styles.justifyContent};
-      font-size: ${styles.fontSize};
+      cursor: ${styles.cursor};
     `;
   }}
 
@@ -79,10 +67,6 @@ const StyledButton = styled(Caption)`
     width: 40px;
     height: 40px;
     object-fit: contain;
-  }
-
-  &:last-child {
-    margin-right: 0;
   }
 `;
 

@@ -1,10 +1,6 @@
 import styled from "styled-components";
 import { Title } from "./Typography";
 
-const ModalWrapper = styled.div`
-  display: flex;
-`;
-
 const ModalBackdrop = styled.div`
   position: fixed;
   top: 0;
@@ -25,13 +21,13 @@ const ModalContainer = styled.div`
 
 function Modal({ handleCloseModal, children, modalTitle }) {
   return (
-    <ModalWrapper>
+    <>
       <ModalBackdrop onClick={handleCloseModal} />
       <ModalContainer>
         <Title style={{ marginBottom: "36px" }}>{modalTitle}</Title>
         {children}
       </ModalContainer>
-    </ModalWrapper>
+    </>
   );
 }
 
