@@ -2,14 +2,14 @@ import styled from "styled-components";
 import { RESTAURANT_CATEGORY_FILTER } from "../../constants/category";
 import { TEXT } from "../../constants/messages";
 
-const RestaurantFilterContainer = styled.section`
+const CategoryFilterContainer = styled.section`
   display: flex;
   justify-content: space-between;
   padding: 0 16px;
   margin-top: 24px;
 `;
 
-const RestaurantFilter = styled.select`
+const CategorySelect = styled.select`
   height: 44px;
   min-width: 125px;
   border: 1px solid #d0d5dd;
@@ -25,8 +25,8 @@ function CategoryFilter({ selectedCategory, setSelectedCategory }) {
   };
 
   return (
-    <RestaurantFilterContainer>
-      <RestaurantFilter
+    <CategoryFilterContainer>
+      <CategorySelect
         name="category"
         id="category-filter"
         aria-label={TEXT.CATEGORY_FILTER_ARIA_LABEL}
@@ -38,8 +38,8 @@ function CategoryFilter({ selectedCategory, setSelectedCategory }) {
             {category}
           </option>
         ))}
-      </RestaurantFilter>
-    </RestaurantFilterContainer>
+      </CategorySelect>
+    </CategoryFilterContainer>
   );
 }
 
