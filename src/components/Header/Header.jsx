@@ -15,17 +15,17 @@ const Gnb = styled.header`
 `;
 
 const HeaderTitle = styled(Title)`
-  color: #fcfcfd;
+  color: ${({ color }) => color || "#fcfcfd"};
 `;
 
-function Header({ setIsAddModalOpen }) {
+function Header({ setIsAddModalOpen, titleColor }) {
   const handleOpenAddModal = () => {
     setIsAddModalOpen(true);
   };
 
   return (
     <Gnb>
-      <HeaderTitle>{TEXT.HEADER_TITLE}</HeaderTitle>
+      <HeaderTitle color={titleColor}>{TEXT.HEADER_TITLE}</HeaderTitle>
       <Button variant="gnb" handleButtonOnClick={handleOpenAddModal}>
         <img src={BUTTON_ICONS.ADD} alt={TEXT.ADD_BUTTON_ARIA_LABEL} />
       </Button>
