@@ -4,6 +4,7 @@ import Modal from "../Common/Modal";
 import Button from "../Common/Button";
 import { Typography } from "../Common/Typography";
 import { Body } from "../Common/Typography";
+import { Caption } from "../Common/Typography";
 
 const RestaurantInfo = styled.div`
   margin-bottom: 24px;
@@ -24,12 +25,9 @@ function RestaurantDetailModal({ setIsDetailModalOpen, selectedRestaurant }) {
           {selectedRestaurant?.description || TEXT.RESTAURANT_DESCRIPTION_NULL}
         </Body>
       </RestaurantInfo>
-      <Button
-        variant="modal"
-        handleButtonOnClick={handleCloseModal}
-        buttonType="button"
-        buttonText={TEXT.CLOSE_BUTTON_TEXT}
-      />
+      <Button variant="modal" onClick={handleCloseModal} type="button">
+        <Caption>{TEXT.CLOSE_BUTTON_TEXT}</Caption>
+      </Button>
     </Modal>
   );
 }

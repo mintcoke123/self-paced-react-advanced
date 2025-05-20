@@ -142,10 +142,11 @@ function AddRestaurantModal({ setIsAddModalOpen, addRestaurantData }) {
 
         <Button
           variant="modal"
-          buttonType="submit"
-          handleButtonOnClick={handleSubmitRestaurantData}
-          buttonText={TEXT.MODAL_ADD_BUTTON_TEXT}
-        />
+          type="submit"
+          onClick={handleSubmitRestaurantData}
+        >
+          <Caption>{TEXT.MODAL_ADD_BUTTON_TEXT}</Caption>
+        </Button>
       </form>
     </Modal>
   );

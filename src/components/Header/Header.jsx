@@ -26,7 +26,7 @@ function Header({ setIsAddModalOpen, titleColor }) {
   return (
     <Gnb>
       <HeaderTitle color={titleColor}>{TEXT.HEADER_TITLE}</HeaderTitle>
-      <Button variant="gnb" handleButtonOnClick={handleOpenAddModal}>
+      <Button variant="gnb" onClick={handleOpenAddModal}>
         <img src={BUTTON_ICONS.ADD} alt={TEXT.ADD_BUTTON_ARIA_LABEL} />
       </Button>
     </Gnb>
