@@ -1,38 +1,30 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import { Caption } from "./Typography";
 
-const Button = styled(Caption)`
-  ${({ variant }) => {
-    if (variant === "gnb") {
-      return `
-        width: auto;
-        height: 40px;
-        background: transparent;
-        color: inherit;
-        border: none;
-        border-radius: 8px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        cursor: pointer;
-      `;
-    }
+const variants = {
+  modal: css`
+    width: 100%;
+    height: 44px;
+    background: var(--primary-color);
+    color: var(--grey-100);
+  `,
+  gnb: css`
+    width: auto;
+    height: 40px;
+    background: transparent;
+    color: inherit;
+  `,
+};
 
-    if (variant === "modal") {
-      return `
-        width: 100%;
-        height: 44px;
-        background: var(--primary-color);
-        color: var(--grey-100);
-        border: none;
-        border-radius: 8px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        cursor: pointer;
-      `;
-    }
-  }}
+const Button = styled(Caption)`
+  ${({ variant = "modal" }) => variants[variant] || variants.modal};
+
+  border: none;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
 
   img {
     display: block;
