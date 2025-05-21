@@ -1,12 +1,10 @@
-
-import './App.css'
+import RestaurantListPage from './pages/RestaurantListPage';
+import './App.css';
 
 function App() {
   return (
-    <>
-        Code It..
-    </>
-  )
+    <RestaurantListPage />
+  );
 }
 
-export default App
+export default App;
