@@ -1,9 +1,9 @@
 import Header from "../components/Header/header";
 import MainContainer from "../components/Main/MainContainer";
 import AsideContainer from "../components/Asides/AsideContainer";
-import { RestaurantDataProvider } from '../context/RestaurantDataContext';
-import { AddModalProvider } from '../context/AddModalContext';
 import { DetailModalProvider } from '../context/DetailModalContext';
+import { AddModalProvider } from '../context/AddModalContext';
+import { RestaurantDataProvider } from '../context/RestaurantDataContext';
 
 function RestaurantListPage() {
   return (
