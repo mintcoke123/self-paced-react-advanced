@@ -1,10 +1,10 @@
 import { useState, useContext } from "react";
 import RestaurantList from "./RestaurantList/RestaurantList";
 import CategoryFilter from "./CategoryFilter";
-import { RestaurantListPageContext } from "../../context/RestaurantListPageContext";
+import { RestaurantDataContext } from "../../context/RestaurantDataContext";
 
 function MainContainer() {
-  const { restaurantsData } = useContext(RestaurantListPageContext);
+  const { restaurantsData } = useContext(RestaurantDataContext);
 
   const [selectedCategory, setSelectedCategory] = useState("");
   const filteredRestaurants =

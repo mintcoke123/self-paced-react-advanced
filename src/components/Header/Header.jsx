@@ -4,7 +4,7 @@ import { BUTTON_ICONS } from "../../constants/icons";
 import { Title } from "../Common/Typography";
 import Button from "../Common/Button";
 import { useContext } from "react";
-import { RestaurantListPageContext } from "../../context/RestaurantListPageContext";
+import { AddModalContext } from "../../context/AddModalContext";
 
 const Gnb = styled.header`
   display: flex;
@@ -21,7 +21,7 @@ const HeaderTitle = styled(Title)`
 `;
 
 function Header() {
-  const { setIsAddModalOpen } = useContext(RestaurantListPageContext);
+  const { setIsAddModalOpen } = useContext(AddModalContext);
 
   return (
     <Gnb>

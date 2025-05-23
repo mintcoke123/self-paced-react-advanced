@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import styled from "styled-components";
-import { RestaurantListPageContext } from "../../../context/RestaurantListPageContext";
+import { DetailModalContext } from "../../../context/DetailModalContext";
 
 const Restaurant = styled.li`
   display: flex;
@@ -53,7 +53,7 @@ function RestaurantComponent({
   name,
   description,
 }) {
-  const { selectClickedRestaurant } = useContext(RestaurantListPageContext);
+  const { selectClickedRestaurant } = useContext(DetailModalContext);
 
   function handleShowClickedRestaurant() {
     selectClickedRestaurant(id);

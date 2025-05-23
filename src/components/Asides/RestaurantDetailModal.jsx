@@ -5,14 +5,14 @@ import Modal from "../Common/Modal";
 import Button from "../Common/Button";
 import { Body } from "../Common/Typography";
 import { Caption } from "../Common/Typography";
-import { RestaurantListPageContext } from "../../context/RestaurantListPageContext";
+import { DetailModalContext } from "../../context/DetailModalContext";
 
 const RestaurantInfo = styled.div`
   margin-bottom: 24px;
 `;
 
 function RestaurantDetailModal() {
-  const { setIsDetailModalOpen, selectedRestaurant } = useContext(RestaurantListPageContext);
+  const { setIsDetailModalOpen, selectedRestaurant } = useContext(DetailModalContext);
 
   return (
     <Modal

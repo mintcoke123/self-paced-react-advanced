@@ -1,8 +1,6 @@
-import { useContext } from "react";
 import styled from "styled-components";
 import { CATEGORY_ICONS } from "../../../constants/icons";
 import RestaurantComponent from "./RestaurantComponent";
-import { RestaurantListPageContext } from "../../../context/RestaurantListPageContext";
 
 const RestaurantListContainer = styled.ul`
   display: flex;
