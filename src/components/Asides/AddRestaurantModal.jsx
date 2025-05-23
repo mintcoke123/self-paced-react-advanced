@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import styled from "styled-components";
 import { TEXT } from "../../constants/messages";
 import { ADD_RESTAURANT_CATEGORY_FILTER } from "../../constants/category";
@@ -6,6 +6,7 @@ import { CATEGORY_ICONS } from "../../constants/icons";
 import Modal from "../Common/Modal";
 import Button from "../Common/Button";
 import { Caption } from "../Common/Typography";
+import { RestaurantListPageContext } from "../../context/RestaurantListPageContext";
 
 const FormLabel = styled.label`
   color: var(--grey-400);
@@ -58,14 +59,11 @@ const HelpText = styled.span`
   color: var(--grey-300);
 `;
 
-function AddRestaurantModal({ setIsAddModalOpen, addRestaurantData }) {
+function AddRestaurantModal() {
+  const { setIsAddModalOpen, addRestaurantData } = useContext(RestaurantListPageContext);
   const [category, setCategory] = useState("");
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
-
-  function handleCloseModal() {
-    setIsAddModalOpen(false);
-  }
 
   const handleSubmitRestaurantData = (event) => {
     event.preventDefault();
@@ -85,13 +83,13 @@ function AddRestaurantModal({ setIsAddModalOpen, addRestaurantData }) {
 
   return (
     <Modal
-      handleCloseModal={handleCloseModal}
+      handleCloseModal={() => setIsAddModalOpen(false)}
       modalTitle={TEXT.MODAL_ADD_TITLE}
     >
       <form onSubmit={handleSubmitRestaurantData}>
         <FormItem>
           <FormLabel htmlFor="category" required>
-            <Caption>카테고리</Caption>
+            <Caption>{TEXT.CATEGORY_LABEL}</Caption>
           </FormLabel>
           <FormSelect
             name="category"
@@ -111,7 +109,7 @@ function AddRestaurantModal({ setIsAddModalOpen, addRestaurantData }) {
 
         <FormItem>
           <FormLabel htmlFor="name" required>
-            <Caption>이름</Caption>
+            <Caption>{TEXT.NAME_LABEL}</Caption>
           </FormLabel>
           <FormInput
             type="text"
@@ -125,7 +123,7 @@ function AddRestaurantModal({ setIsAddModalOpen, addRestaurantData }) {
 
         <FormItem>
           <FormLabel htmlFor="description">
-            <Caption>설명</Caption>
+            <Caption>{TEXT.DESCRIPTION_LABEL}</Caption>
           </FormLabel>
           <FormTextarea
             name="description"
@@ -136,14 +134,13 @@ function AddRestaurantModal({ setIsAddModalOpen, addRestaurantData }) {
             onChange={(e) => setDescription(e.target.value)}
           />
           <HelpText>
-            <Caption>{TEXT.ADD_RESTAURANT_DESCRIPTION_PLACEHOLDER}</Caption>
+            <Caption>{TEXT.MODAL_DESCRIPTION_FOOTER}</Caption>
           </HelpText>
         </FormItem>
 
         <Button
           variant="modal"
           type="submit"
-          onClick={handleSubmitRestaurantData}
         >
           <Caption>{TEXT.MODAL_ADD_BUTTON_TEXT}</Caption>
         </Button>

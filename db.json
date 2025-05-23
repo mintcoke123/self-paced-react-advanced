@@ -43,6 +43,22 @@
       "description": "ㄴㄴㄴㄴㄴ",
       "alt": "한식",
       "categoryIcon": "/src/assets/category/category-korean.png"
+    },
+    {
+      "id": 1748007277332,
+      "category": "한식",
+      "name": "sdfd",
+      "description": "sdfd",
+      "alt": "한식",
+      "categoryIcon": "/src/assets/category/category-korean.png"
+    },
+    {
+      "id": 1748008694597,
+      "category": "중식",
+      "name": "fdfdfd",
+      "description": "sssssssssssssss",
+      "alt": "중식",
+      "categoryIcon": "/src/assets/category/category-chinese.png"
     }
   ]
 }

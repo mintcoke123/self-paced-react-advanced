@@ -1,4 +1,6 @@
+import { useContext } from "react";
 import styled from "styled-components";
+import { RestaurantListPageContext } from "../../../context/RestaurantListPageContext";
 
 const Restaurant = styled.li`
   display: flex;
@@ -50,12 +52,11 @@ function RestaurantComponent({
   categoryIcon,
   name,
   description,
-  selectClickedRestaurant,
-  setIsDetailModalOpen,
 }) {
+  const { selectClickedRestaurant } = useContext(RestaurantListPageContext);
+
   function handleShowClickedRestaurant() {
     selectClickedRestaurant(id);
-    setIsDetailModalOpen(true);
   }
 
   return (
