@@ -1,6 +1,8 @@
 import styled from "styled-components";
 import { RESTAURANT_CATEGORY_FILTER } from "../../constants/category";
 import { TEXT } from "../../constants/messages";
+import { useContext } from "react";
+import { MainContext } from "../../context/MainContext";
 
 const CategoryFilterContainer = styled.section`
   display: flex;
@@ -19,7 +21,8 @@ const CategorySelect = styled.select`
   padding: 8px;
 `;
 
-function CategoryFilter({ selectedCategory, setSelectedCategory }) {
+function CategoryFilter() {
+  const { selectedCategory, setSelectedCategory } = useContext(MainContext);
   const handleChangeCategory = (event) => {
     setSelectedCategory(event.target.value);
   };

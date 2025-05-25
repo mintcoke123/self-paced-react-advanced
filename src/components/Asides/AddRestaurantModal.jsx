@@ -61,27 +61,12 @@ const HelpText = styled.span`
 `;
 
 function AddRestaurantModal() {
-  const { setIsAddModalOpen } = useContext(AddModalContext);
-  const { addRestaurantData } = useContext(RestaurantDataContext);
+  const { setIsAddModalOpen, handleSubmitRestaurantData } =
+    useContext(AddModalContext);
+
   const [category, setCategory] = useState("");
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
-
-  const handleSubmitRestaurantData = (event) => {
-    event.preventDefault();
-
-    const newRestaurant = {
-      id: Date.now(),
-      category,
-      name,
-      description,
-      alt: category,
-      categoryIcon: CATEGORY_ICONS[category],
-    };
-
-    addRestaurantData(newRestaurant);
-    setIsAddModalOpen(false);
-  };
 
   return (
     <Modal
@@ -140,10 +125,7 @@ function AddRestaurantModal() {
           </HelpText>
         </FormItem>
 
-        <Button
-          variant="modal"
-          type="submit"
-        >
+        <Button variant="modal" type="submit">
           <Caption>{TEXT.MODAL_ADD_BUTTON_TEXT}</Caption>
         </Button>
       </form>

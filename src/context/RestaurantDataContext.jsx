@@ -6,7 +6,6 @@ export const RestaurantDataContext = createContext();
 export function RestaurantDataProvider({ children }) {
   const [restaurantsData, setRestaurantsData] = useState();
 
-
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -25,10 +24,14 @@ export function RestaurantDataProvider({ children }) {
     setRestaurantsData(refreshedRestaurant);
   }
 
-  
+  const value = {
+    restaurantsData,
+    setRestaurantsData,
+    addRestaurantData,
+  };
 
   return (
-    <RestaurantDataContext.Provider value={{ restaurantsData, setRestaurantsData, addRestaurantData }}>
+    <RestaurantDataContext.Provider value={value}>
       {children}
     </RestaurantDataContext.Provider>
   );

@@ -4,15 +4,18 @@ import AsideContainer from "../components/Asides/AsideContainer";
 import { DetailModalProvider } from "../context/DetailModalContext";
 import { AddModalProvider } from "../context/AddModalContext";
 import { RestaurantDataProvider } from "../context/RestaurantDataContext";
+import { MainContextProvider } from "../context/MainContext";
 
 function RestaurantListPage() {
   return (
     <RestaurantDataProvider>
       <AddModalProvider>
         <DetailModalProvider>
-          <Header />
-          <MainContainer />
-          <AsideContainer />
+          <MainContextProvider>
+            <Header />
+            <MainContainer />
+            <AsideContainer />
+          </MainContextProvider>
         </DetailModalProvider>
       </AddModalProvider>
     </RestaurantDataProvider>

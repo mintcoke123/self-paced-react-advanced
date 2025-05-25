@@ -1,6 +1,8 @@
 import styled from "styled-components";
 import { CATEGORY_ICONS } from "../../../constants/icons";
 import RestaurantComponent from "./RestaurantComponent";
+import { useContext } from "react";
+import { MainContext } from "../../../context/MainContext";
 
 const RestaurantListContainer = styled.ul`
   display: flex;
@@ -9,7 +11,9 @@ const RestaurantListContainer = styled.ul`
   margin: 16px 0;
 `;
 
-function RestaurantList({ filteredRestaurants }) {
+function RestaurantList() {
+  const { filteredRestaurants } = useContext(MainContext);
+
   return (
     <RestaurantListContainer>
       {filteredRestaurants?.map(({ id, category, name, description }) => (

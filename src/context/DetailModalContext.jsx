@@ -16,8 +16,15 @@ export function DetailModalProvider({ children }) {
     setIsDetailModalOpen(true);
   }
 
+  const value = {
+    isDetailModalOpen,
+    setIsDetailModalOpen,
+    selectedRestaurant,
+    selectClickedRestaurant,
+  };
+
   return (
-    <DetailModalContext.Provider value={{ isDetailModalOpen, setIsDetailModalOpen, selectedRestaurant, selectClickedRestaurant }}>
+    <DetailModalContext.Provider value={value}>
       {children}
     </DetailModalContext.Provider>
   );

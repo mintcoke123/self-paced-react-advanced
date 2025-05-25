@@ -55,20 +55,14 @@ function RestaurantComponent({
 }) {
   const { selectClickedRestaurant } = useContext(DetailModalContext);
 
-  function handleShowClickedRestaurant() {
-    selectClickedRestaurant(id);
-  }
-
   return (
-    <Restaurant onClick={handleShowClickedRestaurant}>
+    <Restaurant onClick={() => selectClickedRestaurant(id)}>
       <RestaurantCategory>
         <CategoryIcon src={categoryIcon} alt={category} />
       </RestaurantCategory>
       <RestaurantInfo>
-        <RestaurantName className="textSubtitle">{name}</RestaurantName>
-        <RestaurantDescription className="textBody">
-          {description}
-        </RestaurantDescription>
+        <RestaurantName>{name}</RestaurantName>
+        <RestaurantDescription>{description}</RestaurantDescription>
       </RestaurantInfo>
     </Restaurant>
   );
