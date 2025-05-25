@@ -1,23 +1,26 @@
 import Header from "../components/Header/Header";
 import MainContainer from "../components/Main/MainContainer";
 import AsideContainer from "../components/Asides/AsideContainer";
+import { RestaurantDataProvider } from "../context/RestaurantDataContext";
+import { MainProvider } from "../context/MainContext";
+import { RestaurantListPageProvider } from "../context/RestaurantListPageContext";
 import { DetailModalProvider } from "../context/DetailModalContext";
 import { AddModalProvider } from "../context/AddModalContext";
-import { RestaurantDataProvider } from "../context/RestaurantDataContext";
-import { MainContextProvider } from "../context/MainContext";
 
 function RestaurantListPage() {
   return (
     <RestaurantDataProvider>
-      <AddModalProvider>
-        <DetailModalProvider>
-          <MainContextProvider>
-            <Header />
-            <MainContainer />
+      <RestaurantListPageProvider>
+        <AddModalProvider>
+          <Header />
+          <DetailModalProvider>
+            <MainProvider>
+              <MainContainer />
+            </MainProvider>
             <AsideContainer />
-          </MainContextProvider>
-        </DetailModalProvider>
-      </AddModalProvider>
+          </DetailModalProvider>
+        </AddModalProvider>
+      </RestaurantListPageProvider>
     </RestaurantDataProvider>
   );
 }

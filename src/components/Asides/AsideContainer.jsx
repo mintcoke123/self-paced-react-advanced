@@ -5,13 +5,8 @@ import { DetailModalContext } from "../../context/DetailModalContext";
 import { AddModalContext } from "../../context/AddModalContext";
 
 function AsideContainer() {
-  const {
-    isDetailModalOpen    
-  } = useContext(DetailModalContext);
-
-  const {
-    isAddModalOpen
-  } = useContext(AddModalContext);
+  const { isDetailModalOpen } = useContext(DetailModalContext);
+  const { isAddModalOpen } = useContext(AddModalContext);
 
   return (
     <aside>

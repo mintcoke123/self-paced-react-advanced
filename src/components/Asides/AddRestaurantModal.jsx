@@ -2,12 +2,10 @@ import { useState, useContext } from "react";
 import styled from "styled-components";
 import { TEXT } from "../../constants/messages";
 import { ADD_RESTAURANT_CATEGORY_FILTER } from "../../constants/category";
-import { CATEGORY_ICONS } from "../../constants/icons";
 import Modal from "../Common/Modal";
 import Button from "../Common/Button";
 import { Caption } from "../Common/Typography";
 import { AddModalContext } from "../../context/AddModalContext";
-import { RestaurantDataContext } from "../../context/RestaurantDataContext";
 
 const FormLabel = styled.label`
   color: var(--grey-400);

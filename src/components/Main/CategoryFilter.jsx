@@ -22,10 +22,7 @@ const CategorySelect = styled.select`
 `;
 
 function CategoryFilter() {
-  const { selectedCategory, setSelectedCategory } = useContext(MainContext);
-  const handleChangeCategory = (event) => {
-    setSelectedCategory(event.target.value);
-  };
+  const { selectedCategory, handleChangeCategory } = useContext(MainContext);
 
   return (
     <CategoryFilterContainer>

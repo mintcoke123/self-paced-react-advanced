@@ -26,7 +26,6 @@ export function RestaurantDataProvider({ children }) {
 
   const value = {
     restaurantsData,
-    setRestaurantsData,
     addRestaurantData,
   };
 

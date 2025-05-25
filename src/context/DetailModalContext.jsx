@@ -1,26 +1,16 @@
-import { createContext, useState, useContext } from "react";
-import { RestaurantDataContext } from "./RestaurantDataContext";
+import { createContext, useContext, useState } from "react";
+import { RestaurantListPageContext } from "./RestaurantListPageContext";
 
 export const DetailModalContext = createContext();
 
 export function DetailModalProvider({ children }) {
-  const { restaurantsData } = useContext(RestaurantDataContext);
-  const [isDetailModalOpen, setIsDetailModalOpen] = useState(false);
-  const [selectedRestaurant, setSelectedRestaurant] = useState();
-
-  function selectClickedRestaurant(id) {
-    const clickedRestaurant = restaurantsData.find(
-      (restaurant) => restaurant.id === id
-    );
-    setSelectedRestaurant(clickedRestaurant);
-    setIsDetailModalOpen(true);
-  }
+  const { selectedRestaurant, setIsDetailModalOpen, isDetailModalOpen } =
+    useContext(RestaurantListPageContext);
 
   const value = {
     isDetailModalOpen,
     setIsDetailModalOpen,
     selectedRestaurant,
-    selectClickedRestaurant,
   };
 
   return (
