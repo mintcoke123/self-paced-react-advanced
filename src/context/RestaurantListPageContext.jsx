@@ -1,6 +1,5 @@
 import { createContext, useState, useContext } from "react";
 import { RestaurantDataContext } from "./RestaurantDataContext";
-import { CATEGORY_ICONS } from "../constants/icons";
 
 export const RestaurantListPageContext = createContext();
 
