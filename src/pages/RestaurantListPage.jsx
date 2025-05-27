@@ -1,14 +1,14 @@
-import { useEffect, useState } from "react";
-import HeaderContainer from "../components/Header/HeaderContainer";
+import Header from "../components/Header/Header";
 import MainContainer from "../components/Main/MainContainer";
 import AsideContainer from "../components/Asides/AsideContainer";
-import { addRestaurant, getRestaurants } from "../api/api.js";
+import { RestaurantListPageContext } from "../context/RestaurantListPageContext";
+import { getRestaurants } from "../api/api";
+import { useContext, useEffect } from "react";
 
 function RestaurantListPage() {
-  const [isDetailModalOpen, setIsDetailModalOpen] = useState(false);
-  const [selectedRestaurant, setSelectedRestaurant] = useState();
-  const [isAddModalOpen, setIsAddModalOpen] = useState(false);
-  const [restaurantsData, setRestaurantsData] = useState();
+  const {
+    actions: { setRestaurantsData },
+  } = useContext(RestaurantListPageContext);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -22,35 +22,11 @@ function RestaurantListPage() {
     fetchData();
   }, []);
 
-  function selectClickedRestaurant(id) {
-    const clickedRestaurant = restaurantsData.find(
-      (restaurant) => restaurant.id === id
-    );
-    setSelectedRestaurant(clickedRestaurant);
-  }
-
-  async function addRestaurantData(newRestaurant) {
-    await addRestaurant(newRestaurant);
-    const refreshedRestaurant = await getRestaurants();
-    setRestaurantsData(refreshedRestaurant);
-  }
-
   return (
     <>
-      <HeaderContainer setIsAddModalOpen={setIsAddModalOpen} />
-      <MainContainer
-        setIsDetailModalOpen={setIsDetailModalOpen}
-        selectClickedRestaurant={selectClickedRestaurant}
-        restaurantsData={restaurantsData}
-      />
-      <AsideContainer
-        isDetailModalOpen={isDetailModalOpen}
-        setIsDetailModalOpen={setIsDetailModalOpen}
-        selectedRestaurant={selectedRestaurant}
-        isAddModalOpen={isAddModalOpen}
-        setIsAddModalOpen={setIsAddModalOpen}
-        addRestaurantData={addRestaurantData}
-      />
+      <Header />
+      <MainContainer />
+      <AsideContainer />
     </>
   );
 }

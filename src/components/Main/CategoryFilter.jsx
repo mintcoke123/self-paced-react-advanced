@@ -1,6 +1,8 @@
 import styled from "styled-components";
 import { RESTAURANT_CATEGORY_FILTER } from "../../constants/category";
 import { TEXT } from "../../constants/messages";
+import { useContext } from "react";
+import { RestaurantListPageContext } from "../../context/RestaurantListPageContext";
 
 const CategoryFilterContainer = styled.section`
   display: flex;
@@ -19,7 +21,12 @@ const CategorySelect = styled.select`
   padding: 8px;
 `;
 
-function CategoryFilter({ selectedCategory, setSelectedCategory }) {
+function CategoryFilter() {
+  const {
+    state: { selectedCategory },
+    actions: { setSelectedCategory },
+  } = useContext(RestaurantListPageContext);
+
   const handleChangeCategory = (event) => {
     setSelectedCategory(event.target.value);
   };

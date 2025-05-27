@@ -1,70 +1,74 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import styled from "styled-components";
 import { TEXT } from "../../constants/messages";
 import { ADD_RESTAURANT_CATEGORY_FILTER } from "../../constants/category";
 import { CATEGORY_ICONS } from "../../constants/icons";
+import { getRestaurants, addRestaurant } from "../../api/api";
 import Modal from "../Common/Modal";
 import Button from "../Common/Button";
-import { Caption } from "../Common/Typography";
-
-const FormLabel = styled.label`
-  color: var(--grey-400);
-  font-size: 14px;
-  ${({ required }) =>
-    required &&
-    `
-    &::after {
-      padding-left: 4px;
-      color: var(--primary-color);
-      content: "*";
-    }
-  `}
-`;
-
-const FormInput = styled.input`
-  padding: 8px;
-  margin: 6px 0;
-  border: 1px solid var(--grey-200);
-  border-radius: 8px;
-  font-size: 16px;
-`;
-
-const FormTextarea = styled.textarea`
-  padding: 8px;
-  margin: 6px 0;
-  border: 1px solid var(--grey-200);
-  border-radius: 8px;
-  font-size: 16px;
-  resize: none;
-`;
-
-const FormSelect = styled.select`
-  padding: 8px;
-  margin: 6px 0;
-  border: 1px solid var(--grey-200);
-  border-radius: 8px;
-  font-size: 16px;
-  height: 44px;
-  color: var(--grey-300);
-`;
+import { RestaurantListPageContext } from "../../context/RestaurantListPageContext";
 
 const FormItem = styled.div`
   display: flex;
   flex-direction: column;
   margin-bottom: 36px;
+
+  label {
+    color: var(--grey-400);
+    font-size: 14px;
+  }
+
+  input,
+  textarea,
+  select {
+    padding: 8px;
+    margin: 6px 0;
+    border: 1px solid var(--grey-200);
+    border-radius: 8px;
+    font-size: 16px;
+  }
+
+  textarea {
+    resize: none;
+  }
+
+  select {
+    height: 44px;
+    padding: 8px;
+    border: 1px solid var(--grey-200);
+    border-radius: 8px;
+    color: var(--grey-300);
+  }
+`;
+
+const FormItemRequired = styled(FormItem)`
+  label::after {
+    padding-left: 4px;
+    color: var(--primary-color);
+    content: "*";
+  }
 `;
 
 const HelpText = styled.span`
   color: var(--grey-300);
 `;
 
-function AddRestaurantModal({ setIsAddModalOpen, addRestaurantData }) {
+function AddRestaurantModal() {
+  const {
+    actions: { setIsAddModalOpen, setRestaurantsData },
+  } = useContext(RestaurantListPageContext);
   const [category, setCategory] = useState("");
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
 
   function handleCloseModal() {
     setIsAddModalOpen(false);
+  }
+
+  async function addRestaurantData(newRestaurant) {
+    await addRestaurant(newRestaurant);
+    const refreshedRestaurant = await getRestaurants();
+    setRestaurantsData(refreshedRestaurant);
   }
 
   const handleSubmitRestaurantData = (event) => {
@@ -89,11 +93,11 @@ function AddRestaurantModal({ setIsAddModalOpen, addRestaurantData }) {
       modalTitle={TEXT.MODAL_ADD_TITLE}
     >
       <form onSubmit={handleSubmitRestaurantData}>
-        <FormItem>
-          <FormLabel htmlFor="category" required>
-            <Caption>카테고리</Caption>
-          </FormLabel>
-          <FormSelect
+        <FormItemRequired>
+          <label htmlFor="category" className="text-caption">
+            {TEXT.MODAL_CATEGORY_TEXT}
+          </label>
+          <select
             name="category"
             id="category"
             value={category}
@@ -106,14 +110,14 @@ function AddRestaurantModal({ setIsAddModalOpen, addRestaurantData }) {
                 {category}
               </option>
             ))}
-          </FormSelect>
-        </FormItem>
+          </select>
+        </FormItemRequired>
 
-        <FormItem>
-          <FormLabel htmlFor="name" required>
-            <Caption>이름</Caption>
-          </FormLabel>
-          <FormInput
+        <FormItemRequired>
+          <label htmlFor="name" className="text-caption">
+            {TEXT.NAME_LABEL}
+          </label>
+          <input
             type="text"
             name="name"
             id="name"
@@ -121,13 +125,13 @@ function AddRestaurantModal({ setIsAddModalOpen, addRestaurantData }) {
             value={name}
             onChange={(e) => setName(e.target.value)}
           />
-        </FormItem>
+        </FormItemRequired>
 
         <FormItem>
-          <FormLabel htmlFor="description">
-            <Caption>설명</Caption>
-          </FormLabel>
-          <FormTextarea
+          <label htmlFor="description" className="text-caption">
+            {TEXT.DESCRIPTION_LABEL}
+          </label>
+          <textarea
             name="description"
             id="description"
             cols="30"
@@ -135,17 +139,13 @@ function AddRestaurantModal({ setIsAddModalOpen, addRestaurantData }) {
             value={description}
             onChange={(e) => setDescription(e.target.value)}
           />
-          <HelpText>
-            <Caption>{TEXT.ADD_RESTAURANT_DESCRIPTION_PLACEHOLDER}</Caption>
+          <HelpText className="text-caption">
+            {TEXT.MODAL_DESCRIPTION_FOOTER}
           </HelpText>
         </FormItem>
 
-        <Button
-          variant="modal"
-          type="submit"
-          onClick={handleSubmitRestaurantData}
-        >
-          <Caption>{TEXT.MODAL_ADD_BUTTON_TEXT}</Caption>
+        <Button variant="modal" buttonType="submit">
+          {TEXT.MODAL_ADD_BUTTON_TEXT}
         </Button>
       </form>
     </Modal>

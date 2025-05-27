@@ -1,30 +1,17 @@
+import { useContext } from "react";
 import RestaurantDetailModal from "./RestaurantDetailModal";
 import AddRestaurantModal from "./AddRestaurantModal";
+import { RestaurantListPageContext } from "../../context/RestaurantListPageContext";
 
+function AsideContainer() {
+  const {
+    state: { isDetailModalOpen, isAddModalOpen },
+  } = useContext(RestaurantListPageContext);
 
-function AsideContainer({
-  isDetailModalOpen,
-  setIsDetailModalOpen,
-  selectedRestaurant,
-  isAddModalOpen,
-  setIsAddModalOpen,
-  addRestaurantData,
-}) {
   return (
     <aside>
-      {isDetailModalOpen && (
-        <RestaurantDetailModal
-          setIsDetailModalOpen={setIsDetailModalOpen}
-          selectedRestaurant={selectedRestaurant}
-        />
-      )}
-      {isAddModalOpen && (
-        <AddRestaurantModal
-          setIsAddModalOpen={setIsAddModalOpen}
-          addRestaurantData={addRestaurantData}
-        />
-      )}
-
+      {isDetailModalOpen && <RestaurantDetailModal />}
+      {isAddModalOpen && <AddRestaurantModal />}
     </aside>
   );
 }

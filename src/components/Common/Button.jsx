@@ -1,5 +1,4 @@
 import styled, { css } from "styled-components";
-import { Caption } from "./Typography";
 
 const variants = {
   modal: css`
@@ -16,7 +15,7 @@ const variants = {
   `,
 };
 
-const Button = styled(Caption)`
+const Button = styled.button`
   ${({ variant = "modal" }) => variants[variant] || variants.modal};
 
   border: none;

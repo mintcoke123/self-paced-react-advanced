@@ -1,7 +1,8 @@
 import styled from "styled-components";
 import { CATEGORY_ICONS } from "../../../constants/icons";
+import { RestaurantListPageContext } from "../../../context/RestaurantListPageContext";
+import { useContext } from "react";
 import RestaurantComponent from "./RestaurantComponent";
-
 const RestaurantListContainer = styled.ul`
   display: flex;
   flex-direction: column;
@@ -9,11 +10,18 @@ const RestaurantListContainer = styled.ul`
   margin: 16px 0;
 `;
 
-function RestaurantList({
-  filteredRestaurants,
-  selectClickedRestaurant,
-  setIsDetailModalOpen,
-}) {
+function RestaurantList() {
+  const {
+    state: { selectedCategory, restaurantsData },
+  } = useContext(RestaurantListPageContext);
+
+  const filteredRestaurants =
+    selectedCategory === "" || selectedCategory === "전체"
+      ? restaurantsData
+      : restaurantsData.filter(
+          (restaurant) => restaurant.category === selectedCategory
+        );
+
   return (
     <RestaurantListContainer>
       {filteredRestaurants?.map(({ id, category, name, description }) => (
@@ -24,8 +32,6 @@ function RestaurantList({
           categoryIcon={CATEGORY_ICONS[category]}
           name={name}
           description={description}
-          setIsDetailModalOpen={setIsDetailModalOpen}
-          selectClickedRestaurant={selectClickedRestaurant}
         />
       ))}
     </RestaurantListContainer>
