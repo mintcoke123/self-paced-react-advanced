@@ -1,9 +1,12 @@
-import RestaurantListPage from './pages/RestaurantListPage';
-import './App.css';
+import RestaurantListPage from "./pages/RestaurantListPage";
+import "./App.css";
+import { RestaurantListPageProvider } from "./context/RestaurantListPageContext";
 
 function App() {
   return (
-    <RestaurantListPage />
+    <RestaurantListPageProvider>
+      <RestaurantListPage />
+    </RestaurantListPageProvider>
   );
 }
 

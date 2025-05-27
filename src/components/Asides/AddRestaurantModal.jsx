@@ -2,56 +2,51 @@ import { useState, useContext } from "react";
 import styled from "styled-components";
 import { TEXT } from "../../constants/messages";
 import { ADD_RESTAURANT_CATEGORY_FILTER } from "../../constants/category";
+import { CATEGORY_ICONS } from "../../constants/icons";
+import { getRestaurants, addRestaurant } from "../../api/api";
 import Modal from "../Common/Modal";
 import Button from "../Common/Button";
-import { Caption } from "../Common/Typography";
-import { AddModalContext } from "../../context/AddModalContext";
-
-const FormLabel = styled.label`
-  color: var(--grey-400);
-  font-size: 14px;
-  ${({ required }) =>
-    required &&
-    `
-    &::after {
-      padding-left: 4px;
-      color: var(--primary-color);
-      content: "*";
-    }
-  `}
-`;
-
-const FormInput = styled.input`
-  padding: 8px;
-  margin: 6px 0;
-  border: 1px solid var(--grey-200);
-  border-radius: 8px;
-  font-size: 16px;
-`;
-
-const FormTextarea = styled.textarea`
-  padding: 8px;
-  margin: 6px 0;
-  border: 1px solid var(--grey-200);
-  border-radius: 8px;
-  font-size: 16px;
-  resize: none;
-`;
-
-const FormSelect = styled.select`
-  padding: 8px;
-  margin: 6px 0;
-  border: 1px solid var(--grey-200);
-  border-radius: 8px;
-  font-size: 16px;
-  height: 44px;
-  color: var(--grey-300);
-`;
+import { RestaurantListPageContext } from "../../context/RestaurantListPageContext";
 
 const FormItem = styled.div`
   display: flex;
   flex-direction: column;
   margin-bottom: 36px;
+
+  label {
+    color: var(--grey-400);
+    font-size: 14px;
+  }
+
+  input,
+  textarea,
+  select {
+    padding: 8px;
+    margin: 6px 0;
+    border: 1px solid var(--grey-200);
+    border-radius: 8px;
+    font-size: 16px;
+  }
+
+  textarea {
+    resize: none;
+  }
+
+  select {
+    height: 44px;
+    padding: 8px;
+    border: 1px solid var(--grey-200);
+    border-radius: 8px;
+    color: var(--grey-300);
+  }
+`;
+
+const FormItemRequired = styled(FormItem)`
+  label::after {
+    padding-left: 4px;
+    color: var(--primary-color);
+    content: "*";
+  }
 `;
 
 const HelpText = styled.span`
@@ -59,24 +54,50 @@ const HelpText = styled.span`
 `;
 
 function AddRestaurantModal() {
-  const { setIsAddModalOpen, handleSubmitRestaurantData } =
-    useContext(AddModalContext);
-
+  const {
+    actions: { setIsAddModalOpen, setRestaurantsData },
+  } = useContext(RestaurantListPageContext);
   const [category, setCategory] = useState("");
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
 
+  function handleCloseModal() {
+    setIsAddModalOpen(false);
+  }
+
+  async function addRestaurantData(newRestaurant) {
+    await addRestaurant(newRestaurant);
+    const refreshedRestaurant = await getRestaurants();
+    setRestaurantsData(refreshedRestaurant);
+  }
+
+  const handleSubmitRestaurantData = (event) => {
+    event.preventDefault();
+
+    const newRestaurant = {
+      id: Date.now(),
+      category,
+      name,
+      description,
+      alt: category,
+      categoryIcon: CATEGORY_ICONS[category],
+    };
+
+    addRestaurantData(newRestaurant);
+    setIsAddModalOpen(false);
+  };
+
   return (
     <Modal
-      handleCloseModal={() => setIsAddModalOpen(false)}
+      handleCloseModal={handleCloseModal}
       modalTitle={TEXT.MODAL_ADD_TITLE}
     >
       <form onSubmit={handleSubmitRestaurantData}>
-        <FormItem>
-          <FormLabel htmlFor="category" required>
-            <Caption>{TEXT.CATEGORY_LABEL}</Caption>
-          </FormLabel>
-          <FormSelect
+        <FormItemRequired>
+          <label htmlFor="category" className="text-caption">
+            {TEXT.MODAL_CATEGORY_TEXT}
+          </label>
+          <select
             name="category"
             id="category"
             value={category}
@@ -89,14 +110,14 @@ function AddRestaurantModal() {
                 {category}
               </option>
             ))}
-          </FormSelect>
-        </FormItem>
+          </select>
+        </FormItemRequired>
 
-        <FormItem>
-          <FormLabel htmlFor="name" required>
-            <Caption>{TEXT.NAME_LABEL}</Caption>
-          </FormLabel>
-          <FormInput
+        <FormItemRequired>
+          <label htmlFor="name" className="text-caption">
+            {TEXT.NAME_LABEL}
+          </label>
+          <input
             type="text"
             name="name"
             id="name"
@@ -104,13 +125,13 @@ function AddRestaurantModal() {
             value={name}
             onChange={(e) => setName(e.target.value)}
           />
-        </FormItem>
+        </FormItemRequired>
 
         <FormItem>
-          <FormLabel htmlFor="description">
-            <Caption>{TEXT.DESCRIPTION_LABEL}</Caption>
-          </FormLabel>
-          <FormTextarea
+          <label htmlFor="description" className="text-caption">
+            {TEXT.DESCRIPTION_LABEL}
+          </label>
+          <textarea
             name="description"
             id="description"
             cols="30"
@@ -118,13 +139,13 @@ function AddRestaurantModal() {
             value={description}
             onChange={(e) => setDescription(e.target.value)}
           />
-          <HelpText>
-            <Caption>{TEXT.MODAL_DESCRIPTION_FOOTER}</Caption>
+          <HelpText className="text-caption">
+            {TEXT.MODAL_DESCRIPTION_FOOTER}
           </HelpText>
         </FormItem>
 
-        <Button variant="modal" type="submit">
-          <Caption>{TEXT.MODAL_ADD_BUTTON_TEXT}</Caption>
+        <Button variant="modal" buttonType="submit">
+          {TEXT.MODAL_ADD_BUTTON_TEXT}
         </Button>
       </form>
     </Modal>

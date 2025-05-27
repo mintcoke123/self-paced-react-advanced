@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { RESTAURANT_CATEGORY_FILTER } from "../../constants/category";
 import { TEXT } from "../../constants/messages";
 import { useContext } from "react";
-import { MainContext } from "../../context/MainContext";
+import { RestaurantListPageContext } from "../../context/RestaurantListPageContext";
 
 const CategoryFilterContainer = styled.section`
   display: flex;
@@ -22,7 +22,14 @@ const CategorySelect = styled.select`
 `;
 
 function CategoryFilter() {
-  const { selectedCategory, handleChangeCategory } = useContext(MainContext);
+  const {
+    state: { selectedCategory },
+    actions: { setSelectedCategory },
+  } = useContext(RestaurantListPageContext);
+
+  const handleChangeCategory = (event) => {
+    setSelectedCategory(event.target.value);
+  };
 
   return (
     <CategoryFilterContainer>

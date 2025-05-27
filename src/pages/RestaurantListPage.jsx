@@ -1,27 +1,33 @@
 import Header from "../components/Header/Header";
 import MainContainer from "../components/Main/MainContainer";
 import AsideContainer from "../components/Asides/AsideContainer";
-import { RestaurantDataProvider } from "../context/RestaurantDataContext";
-import { MainProvider } from "../context/MainContext";
-import { RestaurantListPageProvider } from "../context/RestaurantListPageContext";
-import { DetailModalProvider } from "../context/DetailModalContext";
-import { AddModalProvider } from "../context/AddModalContext";
+import { RestaurantListPageContext } from "../context/RestaurantListPageContext";
+import { getRestaurants } from "../api/api";
+import { useContext, useEffect } from "react";
 
 function RestaurantListPage() {
+  const {
+    actions: { setRestaurantsData },
+  } = useContext(RestaurantListPageContext);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const data = await getRestaurants();
+        setRestaurantsData(data);
+      } catch (error) {
+        alert("레스토랑 데이터를 불러오는 데 실패했습니다.");
+      }
+    };
+    fetchData();
+  }, []);
+
   return (
-    <RestaurantDataProvider>
-      <RestaurantListPageProvider>
-        <AddModalProvider>
-          <Header />
-          <DetailModalProvider>
-            <MainProvider>
-              <MainContainer />
-            </MainProvider>
-            <AsideContainer />
-          </DetailModalProvider>
-        </AddModalProvider>
-      </RestaurantListPageProvider>
-    </RestaurantDataProvider>
+    <>
+      <Header />
+      <MainContainer />
+      <AsideContainer />
+    </>
   );
 }
 

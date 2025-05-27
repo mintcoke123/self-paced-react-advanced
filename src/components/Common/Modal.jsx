@@ -1,5 +1,8 @@
 import styled from "styled-components";
-import { Title } from "./Typography";
+
+const ModalOpen = styled.div`
+  display: flex;
+`;
 
 const ModalBackdrop = styled.div`
   position: fixed;
@@ -19,15 +22,19 @@ const ModalContainer = styled.div`
   background: var(--grey-100);
 `;
 
+const ModalTitle = styled.h2`
+  margin-bottom: 36px;
+`;
+
 function Modal({ handleCloseModal, children, modalTitle }) {
   return (
-    <>
+    <ModalOpen>
       <ModalBackdrop onClick={handleCloseModal} />
       <ModalContainer>
-        <Title style={{ marginBottom: "36px" }}>{modalTitle}</Title>
+        <ModalTitle className="text-title">{modalTitle}</ModalTitle>
         {children}
       </ModalContainer>
-    </>
+    </ModalOpen>
   );
 }
 

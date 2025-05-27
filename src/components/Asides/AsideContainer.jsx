@@ -1,12 +1,12 @@
 import { useContext } from "react";
 import RestaurantDetailModal from "./RestaurantDetailModal";
 import AddRestaurantModal from "./AddRestaurantModal";
-import { DetailModalContext } from "../../context/DetailModalContext";
-import { AddModalContext } from "../../context/AddModalContext";
+import { RestaurantListPageContext } from "../../context/RestaurantListPageContext";
 
 function AsideContainer() {
-  const { isDetailModalOpen } = useContext(DetailModalContext);
-  const { isAddModalOpen } = useContext(AddModalContext);
+  const {
+    state: { isDetailModalOpen, isAddModalOpen },
+  } = useContext(RestaurantListPageContext);
 
   return (
     <aside>

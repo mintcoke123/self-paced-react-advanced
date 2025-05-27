@@ -1,6 +1,6 @@
-import { useContext } from "react";
 import styled from "styled-components";
-import { MainContext } from "../../../context/MainContext";
+import { useContext } from "react";
+import { RestaurantListPageContext } from "../../../context/RestaurantListPageContext";
 
 const Restaurant = styled.li`
   display: flex;
@@ -53,7 +53,19 @@ function RestaurantComponent({
   name,
   description,
 }) {
-  const { selectClickedRestaurant } = useContext(MainContext);
+  const {
+    state: { restaurantsData },
+    actions: { setSelectedRestaurant, setIsDetailModalOpen },
+  } = useContext(RestaurantListPageContext);
+
+  function selectClickedRestaurant(id) {
+    const clickedRestaurant = restaurantsData.find(
+      (restaurant) => restaurant.id === id
+    );
+
+    setSelectedRestaurant(clickedRestaurant);
+    setIsDetailModalOpen(true);
+  }
 
   return (
     <Restaurant onClick={() => selectClickedRestaurant(id)}>
