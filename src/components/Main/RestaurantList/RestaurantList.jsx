@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { CATEGORY_ICONS } from "../../../constants/icons";
 import { useRecoilValue } from "recoil";
 import RestaurantComponent from "./RestaurantComponent";
-import { restaurantsDataState, selectedCategoryState } from "../../../recoil/atoms";
+import { filteredRestaurantsSelector } from "../../../recoil/selectors";
 
 const RestaurantListContainer = styled.ul`
   display: flex;
@@ -12,15 +12,7 @@ const RestaurantListContainer = styled.ul`
 `;
 
 function RestaurantList() {
-  const restaurantsData = useRecoilValue(restaurantsDataState);
-  const selectedCategory = useRecoilValue(selectedCategoryState);
-
-  const filteredRestaurants =
-    selectedCategory === "" || selectedCategory === "전체"
-      ? restaurantsData
-      : restaurantsData.filter(
-          (restaurant) => restaurant.category === selectedCategory
-        );
+  const filteredRestaurants = useRecoilValue(filteredRestaurantsSelector);
 
   return (
     <RestaurantListContainer>

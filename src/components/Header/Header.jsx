@@ -4,7 +4,7 @@ import { BUTTON_ICONS } from "../../constants/icons";
 import { Title } from "../Common/Typography";
 import Button from "../Common/Button";
 import { isAddModalOpenState } from "../../recoil/atoms";
-import { useRecoilState } from "recoil";
+import { useSetRecoilState } from "recoil";
 
 
 const Gnb = styled.header`
@@ -22,7 +22,7 @@ const HeaderTitle = styled(Title)`
 `;
 
 function Header() {
-  const [isAddModalOpen, setIsAddModalOpen] = useRecoilState(isAddModalOpenState);
+  const setIsAddModalOpen = useSetRecoilState(isAddModalOpenState);
 
   return (
     <Gnb>

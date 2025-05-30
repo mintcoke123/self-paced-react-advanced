@@ -31,7 +31,7 @@ function Modal({ handleCloseModal, children, modalTitle }) {
     <ModalOpen>
       <ModalBackdrop onClick={handleCloseModal} />
       <ModalContainer>
-        <ModalTitle className="text-title">{modalTitle}</ModalTitle>
+        <ModalTitle>{modalTitle}</ModalTitle>
         {children}
       </ModalContainer>
     </ModalOpen>

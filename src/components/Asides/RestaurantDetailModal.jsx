@@ -5,7 +5,7 @@ import Button from "../Common/Button";
 import { Body } from "../Common/Typography";
 import { Caption } from "../Common/Typography";
 import { selectedRestaurantState, isDetailModalOpenState } from "../../recoil/atoms";
-import { useRecoilValue, useRecoilState } from "recoil";
+import { useRecoilValue, useSetRecoilState } from "recoil";
 
 const RestaurantInfo = styled.div`
   margin-bottom: 24px;
@@ -13,7 +13,7 @@ const RestaurantInfo = styled.div`
 
 function RestaurantDetailModal() {
   const selectedRestaurant = useRecoilValue(selectedRestaurantState);
-  const [isDetailModalOpen, setIsDetailModalOpen] = useRecoilState(isDetailModalOpenState);
+  const setIsDetailModalOpen = useSetRecoilState(isDetailModalOpenState);
 
   return (
     <Modal

@@ -7,7 +7,7 @@ import { getRestaurants, addRestaurant } from "../../api/api";
 import Modal from "../Common/Modal";
 import Button from "../Common/Button";
 import { isAddModalOpenState, restaurantsDataState } from "../../recoil/atoms";
-import { useRecoilState } from "recoil";
+import { useSetRecoilState } from "recoil";
 
 const FormItem = styled.div`
   display: flex;
@@ -55,8 +55,8 @@ const HelpText = styled.span`
 `;
 
 function AddRestaurantModal() {
-  const [isAddModalOpen, setIsAddModalOpen] = useRecoilState(isAddModalOpenState);
-  const [restaurantsData, setRestaurantsData] = useRecoilState(restaurantsDataState);
+  const setIsAddModalOpen = useSetRecoilState(isAddModalOpenState);
+  const setRestaurantsData = useSetRecoilState(restaurantsDataState);
   const [category, setCategory] = useState(""); 
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");

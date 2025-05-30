@@ -3,12 +3,12 @@ import MainContainer from "../components/Main/MainContainer";
 import AsideContainer from "../components/Asides/AsideContainer";
 import { getRestaurants } from "../api/api";
 import {  useEffect } from "react";
-import { useRecoilState } from "recoil";
+import { useSetRecoilState } from "recoil";
 import { restaurantsDataState } from "../recoil/atoms";
 
 
 function RestaurantListPage() {
-  const [restaurantsData, setRestaurantsData] = useRecoilState(restaurantsDataState);
+  const setRestaurantsData = useSetRecoilState(restaurantsDataState); 
 
   useEffect(() => {
     const fetchData = async () => {

@@ -51,6 +51,38 @@
       "description": "ㅁㅇㄴㅇㄴ",
       "alt": "중식",
       "categoryIcon": "/src/assets/category/category-chinese.png"
+    },
+    {
+      "id": 1748579513710,
+      "category": "중식",
+      "name": "ㅈㄷㄱㄷㄱ",
+      "description": "ㅈㄷㄱㄷㅈㅈ",
+      "alt": "중식",
+      "categoryIcon": "/src/assets/category/category-chinese.png"
+    },
+    {
+      "id": 1748579561758,
+      "category": "한식",
+      "name": "ㅂㅈㄷㅈㅈ",
+      "description": "ㅂㅈㄷㅈㅂㅂㅂㅈㄷㅈㅂㅂㅂㅈㄷㅈㅂㅂㅈㄷㅈㄷㅈㄷㅈㄷㅈㄷㅈㄷㅈㄷ",
+      "alt": "한식",
+      "categoryIcon": "/src/assets/category/category-korean.png"
+    },
+    {
+      "id": 1748582075935,
+      "category": "한식",
+      "name": "ㄴㅇㄹㅇㅇ",
+      "description": "ㅇㄹㅇ",
+      "alt": "한식",
+      "categoryIcon": "/src/assets/category/category-korean.png"
+    },
+    {
+      "id": 1748582088142,
+      "category": "한식",
+      "name": "ㄱ",
+      "description": "ㄴㄴ",
+      "alt": "한식",
+      "categoryIcon": "/src/assets/category/category-korean.png"
     }
   ]
 }
