@@ -1,12 +1,11 @@
-import { useContext } from "react";
+import { useRecoilValue } from "recoil";
 import RestaurantDetailModal from "./RestaurantDetailModal";
 import AddRestaurantModal from "./AddRestaurantModal";
-import { RestaurantListPageContext } from "../../context/RestaurantListPageContext";
+import { isDetailModalOpenState, isAddModalOpenState } from "../../recoil/atoms";
 
 function AsideContainer() {
-  const {
-    state: { isDetailModalOpen, isAddModalOpen },
-  } = useContext(RestaurantListPageContext);
+  const isDetailModalOpen = useRecoilValue(isDetailModalOpenState);
+  const isAddModalOpen = useRecoilValue(isAddModalOpenState);
 
   return (
     <aside>

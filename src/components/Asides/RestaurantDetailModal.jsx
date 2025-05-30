@@ -1,21 +1,19 @@
-import { useContext } from "react";
 import styled from "styled-components";
 import { TEXT } from "../../constants/messages";
 import Modal from "../Common/Modal";
 import Button from "../Common/Button";
 import { Body } from "../Common/Typography";
 import { Caption } from "../Common/Typography";
-import { RestaurantListPageContext } from "../../context/RestaurantListPageContext";
+import { selectedRestaurantState, isDetailModalOpenState } from "../../recoil/atoms";
+import { useRecoilValue, useRecoilState } from "recoil";
 
 const RestaurantInfo = styled.div`
   margin-bottom: 24px;
 `;
 
 function RestaurantDetailModal() {
-  const {
-    state: { selectedRestaurant },
-    actions: { setIsDetailModalOpen },
-  } = useContext(RestaurantListPageContext);
+  const selectedRestaurant = useRecoilValue(selectedRestaurantState);
+  const [isDetailModalOpen, setIsDetailModalOpen] = useRecoilState(isDetailModalOpenState);
 
   return (
     <Modal

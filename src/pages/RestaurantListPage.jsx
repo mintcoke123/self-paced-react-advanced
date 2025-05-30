@@ -1,14 +1,14 @@
 import Header from "../components/Header/Header";
 import MainContainer from "../components/Main/MainContainer";
 import AsideContainer from "../components/Asides/AsideContainer";
-import { RestaurantListPageContext } from "../context/RestaurantListPageContext";
 import { getRestaurants } from "../api/api";
-import { useContext, useEffect } from "react";
+import {  useEffect } from "react";
+import { useRecoilState } from "recoil";
+import { restaurantsDataState } from "../recoil/atoms";
+
 
 function RestaurantListPage() {
-  const {
-    actions: { setRestaurantsData },
-  } = useContext(RestaurantListPageContext);
+  const [restaurantsData, setRestaurantsData] = useRecoilState(restaurantsDataState);
 
   useEffect(() => {
     const fetchData = async () => {

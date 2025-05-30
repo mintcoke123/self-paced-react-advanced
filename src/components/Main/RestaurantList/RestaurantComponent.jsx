@@ -1,6 +1,6 @@
 import styled from "styled-components";
-import { useContext } from "react";
-import { RestaurantListPageContext } from "../../../context/RestaurantListPageContext";
+import { useRecoilState, useRecoilValue } from "recoil";
+import { selectedRestaurantState, isDetailModalOpenState, restaurantsDataState } from "../../../recoil/atoms";
 
 const Restaurant = styled.li`
   display: flex;
@@ -53,10 +53,9 @@ function RestaurantComponent({
   name,
   description,
 }) {
-  const {
-    state: { restaurantsData },
-    actions: { setSelectedRestaurant, setIsDetailModalOpen },
-  } = useContext(RestaurantListPageContext);
+  const [selectedRestaurant, setSelectedRestaurant] = useRecoilState(selectedRestaurantState);
+  const [isDetailModalOpen, setIsDetailModalOpen] = useRecoilState(isDetailModalOpenState);
+  const restaurantsData = useRecoilValue(restaurantsDataState);
 
   function selectClickedRestaurant(id) {
     const clickedRestaurant = restaurantsData.find(

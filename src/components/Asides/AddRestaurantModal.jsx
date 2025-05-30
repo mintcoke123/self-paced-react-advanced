@@ -1,4 +1,4 @@
-import { useState, useContext } from "react";
+import { useState } from "react";
 import styled from "styled-components";
 import { TEXT } from "../../constants/messages";
 import { ADD_RESTAURANT_CATEGORY_FILTER } from "../../constants/category";
@@ -6,7 +6,8 @@ import { CATEGORY_ICONS } from "../../constants/icons";
 import { getRestaurants, addRestaurant } from "../../api/api";
 import Modal from "../Common/Modal";
 import Button from "../Common/Button";
-import { RestaurantListPageContext } from "../../context/RestaurantListPageContext";
+import { isAddModalOpenState, restaurantsDataState } from "../../recoil/atoms";
+import { useRecoilState } from "recoil";
 
 const FormItem = styled.div`
   display: flex;
@@ -54,10 +55,9 @@ const HelpText = styled.span`
 `;
 
 function AddRestaurantModal() {
-  const {
-    actions: { setIsAddModalOpen, setRestaurantsData },
-  } = useContext(RestaurantListPageContext);
-  const [category, setCategory] = useState("");
+  const [isAddModalOpen, setIsAddModalOpen] = useRecoilState(isAddModalOpenState);
+  const [restaurantsData, setRestaurantsData] = useRecoilState(restaurantsDataState);
+  const [category, setCategory] = useState(""); 
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
 

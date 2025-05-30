@@ -35,6 +35,22 @@
       "name": "도스타코스 선릉점",
       "description": "멕시칸 캐주얼 그릴",
       "category": "기타"
+    },
+    {
+      "id": 1748579032676,
+      "category": "한식",
+      "name": "ㅅㄷㄴㅅ",
+      "description": "ㅅㄷㄴㅅ",
+      "alt": "한식",
+      "categoryIcon": "/src/assets/category/category-korean.png"
+    },
+    {
+      "id": 1748579169589,
+      "category": "중식",
+      "name": "ㅁㄴㅇㅇㄴ",
+      "description": "ㅁㅇㄴㅇㄴ",
+      "alt": "중식",
+      "categoryIcon": "/src/assets/category/category-chinese.png"
     }
   ]
 }

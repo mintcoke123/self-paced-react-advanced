@@ -3,8 +3,9 @@ import { TEXT } from "../../constants/messages";
 import { BUTTON_ICONS } from "../../constants/icons";
 import { Title } from "../Common/Typography";
 import Button from "../Common/Button";
-import { useContext } from "react";
-import { RestaurantListPageContext } from "../../context/RestaurantListPageContext";
+import { isAddModalOpenState } from "../../recoil/atoms";
+import { useRecoilState } from "recoil";
+
 
 const Gnb = styled.header`
   display: flex;
@@ -21,9 +22,7 @@ const HeaderTitle = styled(Title)`
 `;
 
 function Header() {
-  const {
-    actions: { setIsAddModalOpen },
-  } = useContext(RestaurantListPageContext);
+  const [isAddModalOpen, setIsAddModalOpen] = useRecoilState(isAddModalOpenState);
 
   return (
     <Gnb>

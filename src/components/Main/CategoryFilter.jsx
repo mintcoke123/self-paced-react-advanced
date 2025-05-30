@@ -1,8 +1,8 @@
 import styled from "styled-components";
 import { RESTAURANT_CATEGORY_FILTER } from "../../constants/category";
 import { TEXT } from "../../constants/messages";
-import { useContext } from "react";
-import { RestaurantListPageContext } from "../../context/RestaurantListPageContext";
+import { useRecoilState } from "recoil";
+import { selectedCategoryState } from "../../recoil/atoms";
 
 const CategoryFilterContainer = styled.section`
   display: flex;
@@ -22,10 +22,7 @@ const CategorySelect = styled.select`
 `;
 
 function CategoryFilter() {
-  const {
-    state: { selectedCategory },
-    actions: { setSelectedCategory },
-  } = useContext(RestaurantListPageContext);
+  const [selectedCategory, setSelectedCategory] = useRecoilState(selectedCategoryState);
 
   const handleChangeCategory = (event) => {
     setSelectedCategory(event.target.value);
