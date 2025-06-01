@@ -1,6 +1,10 @@
-import styled from "styled-components";
-import { useRecoilValue, useSetRecoilState } from "recoil";
-import { selectedRestaurantState, isDetailModalOpenState, restaurantsDataState } from "../../../recoil/atoms";
+import styled from 'styled-components';
+import { useRecoilValue, useSetRecoilState } from 'recoil';
+import {
+  selectedRestaurantState,
+  isDetailModalOpenState,
+  restaurantsDataState,
+} from '../../../recoil/atoms';
 
 const Restaurant = styled.li`
   display: flex;
@@ -59,7 +63,7 @@ function RestaurantComponent({
 
   function selectClickedRestaurant(id) {
     const clickedRestaurant = restaurantsData.find(
-      (restaurant) => restaurant.id === id
+      restaurant => restaurant.id === id
     );
 
     setSelectedRestaurant(clickedRestaurant);

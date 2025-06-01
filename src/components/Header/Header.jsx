@@ -1,11 +1,10 @@
-import styled from "styled-components";
-import { TEXT } from "../../constants/messages";
-import { BUTTON_ICONS } from "../../constants/icons";
-import { Title } from "../Common/Typography";
-import Button from "../Common/Button";
-import { isAddModalOpenState } from "../../recoil/atoms";
-import { useSetRecoilState } from "recoil";
-
+import styled from 'styled-components';
+import { TEXT } from '../../constants/messages';
+import { BUTTON_ICONS } from '../../constants/icons';
+import { Title } from '../Common/Typography';
+import Button from '../Common/Button';
+import { isAddModalOpenState } from '../../recoil/atoms';
+import { useSetRecoilState } from 'recoil';
 
 const Gnb = styled.header`
   display: flex;
@@ -18,7 +17,7 @@ const Gnb = styled.header`
 `;
 
 const HeaderTitle = styled(Title)`
-  color: ${({ color }) => color || "#fcfcfd"};
+  color: ${({ color }) => color || '#fcfcfd'};
 `;
 
 function Header() {

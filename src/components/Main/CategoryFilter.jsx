@@ -1,8 +1,8 @@
-import styled from "styled-components";
-import { RESTAURANT_CATEGORY_FILTER } from "../../constants/category";
-import { TEXT } from "../../constants/messages";
-import { useRecoilState } from "recoil";
-import { selectedCategoryState } from "../../recoil/atoms";
+import styled from 'styled-components';
+import { RESTAURANT_CATEGORY_FILTER } from '../../constants/category';
+import { TEXT } from '../../constants/messages';
+import { useRecoilState } from 'recoil';
+import { selectedCategoryState } from '../../recoil/atoms';
 
 const CategoryFilterContainer = styled.section`
   display: flex;
@@ -22,9 +22,11 @@ const CategorySelect = styled.select`
 `;
 
 function CategoryFilter() {
-  const [selectedCategory, setSelectedCategory] = useRecoilState(selectedCategoryState);
+  const [selectedCategory, setSelectedCategory] = useRecoilState(
+    selectedCategoryState
+  );
 
-  const handleChangeCategory = (event) => {
+  const handleChangeCategory = event => {
     setSelectedCategory(event.target.value);
   };
 
@@ -37,7 +39,7 @@ function CategoryFilter() {
         value={selectedCategory}
         onChange={handleChangeCategory}
       >
-        {RESTAURANT_CATEGORY_FILTER.map((category) => (
+        {RESTAURANT_CATEGORY_FILTER.map(category => (
           <option key={category} value={category}>
             {category}
           </option>
