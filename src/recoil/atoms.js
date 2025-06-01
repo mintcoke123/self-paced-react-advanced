@@ -15,9 +15,9 @@ export const isDetailModalOpenState = atom({
   default: false,
 });
 
-export const selectedRestaurantState = atom({
-  key: 'selectedRestaurant',
-  default: null,
+export const selectedRestaurantIdState = atom({
+  key: 'selectedRestaurantId',
+  default: '',
 });
 
 export const selectedCategoryState = atom({

@@ -4,18 +4,16 @@ import Modal from '../Common/Modal';
 import Button from '../Common/Button';
 import { Body } from '../Common/Typography';
 import { Caption } from '../Common/Typography';
-import {
-  selectedRestaurantState,
-  isDetailModalOpenState,
-} from '../../recoil/atoms';
+import { isDetailModalOpenState } from '../../recoil/atoms';
 import { useRecoilValue, useSetRecoilState } from 'recoil';
+import { selectClickedRestaurant } from '../../recoil/selectors';
 
 const RestaurantInfo = styled.div`
   margin-bottom: 24px;
 `;
 
 function RestaurantDetailModal() {
-  const selectedRestaurant = useRecoilValue(selectedRestaurantState);
+  const selectedRestaurant = useRecoilValue(selectClickedRestaurant);
   const setIsDetailModalOpen = useSetRecoilState(isDetailModalOpenState);
 
   return (

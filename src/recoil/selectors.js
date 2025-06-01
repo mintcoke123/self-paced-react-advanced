@@ -1,5 +1,9 @@
 import { selector } from 'recoil';
-import { restaurantsDataState, selectedCategoryState } from './atoms';
+import {
+  restaurantsDataState,
+  selectedCategoryState,
+  selectedRestaurantIdState,
+} from './atoms';
 
 export const filteredRestaurantsSelector = selector({
   key: 'filteredRestaurants',
@@ -15,5 +19,16 @@ export const filteredRestaurantsSelector = selector({
           );
 
     return filteredRestaurants;
+  },
+});
+
+export const selectClickedRestaurant = selector({
+  key: 'selectClickedRestaurant',
+  get: ({ get }) => {
+    const restaurantsData = get(restaurantsDataState);
+    const selectedRestaurantId = get(selectedRestaurantIdState);
+    return restaurantsData.find(
+      restaurant => restaurant.id === selectedRestaurantId
+    );
   },
 });
