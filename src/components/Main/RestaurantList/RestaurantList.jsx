@@ -1,8 +1,8 @@
-import styled from "styled-components";
-import { CATEGORY_ICONS } from "../../../constants/icons";
-import { useRecoilValue } from "recoil";
-import RestaurantComponent from "./RestaurantComponent";
-import { filteredRestaurantsSelector } from "../../../recoil/selectors";
+import styled from 'styled-components';
+import { CATEGORY_ICONS } from '../../../constants/icons';
+import { useRecoilValue } from 'recoil';
+import RestaurantComponent from './RestaurantComponent';
+import { filteredRestaurantsSelector } from '../../../recoil/selectors';
 
 const RestaurantListContainer = styled.ul`
   display: flex;

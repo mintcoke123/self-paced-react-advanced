@@ -1,11 +1,14 @@
-import styled from "styled-components";
-import { TEXT } from "../../constants/messages";
-import Modal from "../Common/Modal";
-import Button from "../Common/Button";
-import { Body } from "../Common/Typography";
-import { Caption } from "../Common/Typography";
-import { selectedRestaurantState, isDetailModalOpenState } from "../../recoil/atoms";
-import { useRecoilValue, useSetRecoilState } from "recoil";
+import styled from 'styled-components';
+import { TEXT } from '../../constants/messages';
+import Modal from '../Common/Modal';
+import Button from '../Common/Button';
+import { Body } from '../Common/Typography';
+import { Caption } from '../Common/Typography';
+import {
+  selectedRestaurantState,
+  isDetailModalOpenState,
+} from '../../recoil/atoms';
+import { useRecoilValue, useSetRecoilState } from 'recoil';
 
 const RestaurantInfo = styled.div`
   margin-bottom: 24px;

@@ -1,5 +1,5 @@
-import RestaurantList from "./RestaurantList/RestaurantList";
-import CategoryFilter from "./CategoryFilter";
+import RestaurantList from './RestaurantList/RestaurantList';
+import CategoryFilter from './CategoryFilter';
 
 function MainContainer() {
   return (

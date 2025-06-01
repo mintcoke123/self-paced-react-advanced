@@ -1,4 +1,4 @@
-import styled, { css } from "styled-components";
+import styled, { css } from 'styled-components';
 
 const variants = {
   modal: css`
@@ -16,7 +16,7 @@ const variants = {
 };
 
 const Button = styled.button`
-  ${({ variant = "modal" }) => variants[variant] || variants.modal};
+  ${({ variant = 'modal' }) => variants[variant] || variants.modal};
 
   border: none;
   border-radius: 8px;
