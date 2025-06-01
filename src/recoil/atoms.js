@@ -22,5 +22,5 @@ export const selectedRestaurantState = atom({
 
 export const selectedCategoryState = atom({
   key: 'selectedCategory',
-  default: '',
+  default: '전체',
 });

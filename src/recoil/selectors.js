@@ -8,7 +8,7 @@ export const filteredRestaurantsSelector = selector({
     const selectedCategory = get(selectedCategoryState);
 
     const filteredRestaurants =
-      selectedCategory === '' || selectedCategory === '전체'
+      selectedCategory === '전체'
         ? restaurantsData
         : restaurantsData.filter(
             restaurant => restaurant.category === selectedCategory
