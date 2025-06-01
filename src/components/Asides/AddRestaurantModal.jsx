@@ -144,7 +144,7 @@ function AddRestaurantModal() {
           </HelpText>
         </FormItem>
 
-        <Button variant="modal" buttonType="submit">
+        <Button $variant="modal" type="submit">
           {TEXT.MODAL_ADD_BUTTON_TEXT}
         </Button>
       </form>

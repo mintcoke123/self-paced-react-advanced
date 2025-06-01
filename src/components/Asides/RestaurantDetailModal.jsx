@@ -29,7 +29,7 @@ function RestaurantDetailModal() {
         </Body>
       </RestaurantInfo>
       <Button
-        variant="modal"
+        $variant="modal"
         onClick={() => setIsDetailModalOpen(false)}
         type="button"
       >

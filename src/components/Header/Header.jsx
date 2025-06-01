@@ -26,7 +26,7 @@ function Header() {
   return (
     <Gnb>
       <HeaderTitle>{TEXT.HEADER_TITLE}</HeaderTitle>
-      <Button variant="gnb" onClick={() => setIsAddModalOpen(true)}>
+      <Button $variant="gnb" onClick={() => setIsAddModalOpen(true)}>
         <img src={BUTTON_ICONS.ADD} alt={TEXT.ADD_BUTTON_ARIA_LABEL} />
       </Button>
     </Gnb>
