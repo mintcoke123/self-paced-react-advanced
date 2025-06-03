@@ -1,12 +1,12 @@
-import RestaurantListPage from "./pages/RestaurantListPage";
-import "./App.css";
-import { RestaurantListPageProvider } from "./context/RestaurantListPageContext";
+import RestaurantListPage from './pages/RestaurantListPage';
+import './App.css';
+import { RecoilRoot } from 'recoil';
 
 function App() {
   return (
-    <RestaurantListPageProvider>
+    <RecoilRoot>
       <RestaurantListPage />
-    </RestaurantListPageProvider>
+    </RecoilRoot>
   );
 }
 

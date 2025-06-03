@@ -1,10 +1,10 @@
-import styled from "styled-components";
-import { TEXT } from "../../constants/messages";
-import { BUTTON_ICONS } from "../../constants/icons";
-import { Title } from "../Common/Typography";
-import Button from "../Common/Button";
-import { useContext } from "react";
-import { RestaurantListPageContext } from "../../context/RestaurantListPageContext";
+import styled from 'styled-components';
+import { TEXT } from '../../constants/messages';
+import { BUTTON_ICONS } from '../../constants/icons';
+import { Title } from '../Common/Typography';
+import Button from '../Common/Button';
+import { isAddModalOpenState } from '../../recoil/atoms';
+import { useSetRecoilState } from 'recoil';
 
 const Gnb = styled.header`
   display: flex;
@@ -17,18 +17,16 @@ const Gnb = styled.header`
 `;
 
 const HeaderTitle = styled(Title)`
-  color: ${({ color }) => color || "#fcfcfd"};
+  color: ${({ color }) => color || '#fcfcfd'};
 `;
 
 function Header() {
-  const {
-    actions: { setIsAddModalOpen },
-  } = useContext(RestaurantListPageContext);
+  const setIsAddModalOpen = useSetRecoilState(isAddModalOpenState);
 
   return (
     <Gnb>
       <HeaderTitle>{TEXT.HEADER_TITLE}</HeaderTitle>
-      <Button variant="gnb" onClick={() => setIsAddModalOpen(true)}>
+      <Button $variant="gnb" onClick={() => setIsAddModalOpen(true)}>
         <img src={BUTTON_ICONS.ADD} alt={TEXT.ADD_BUTTON_ARIA_LABEL} />
       </Button>
     </Gnb>

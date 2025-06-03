@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 const ModalOpen = styled.div`
   display: flex;
@@ -31,7 +31,7 @@ function Modal({ handleCloseModal, children, modalTitle }) {
     <ModalOpen>
       <ModalBackdrop onClick={handleCloseModal} />
       <ModalContainer>
-        <ModalTitle className="text-title">{modalTitle}</ModalTitle>
+        <ModalTitle>{modalTitle}</ModalTitle>
         {children}
       </ModalContainer>
     </ModalOpen>

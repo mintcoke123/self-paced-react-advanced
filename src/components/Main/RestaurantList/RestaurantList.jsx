@@ -1,8 +1,9 @@
-import styled from "styled-components";
-import { CATEGORY_ICONS } from "../../../constants/icons";
-import { RestaurantListPageContext } from "../../../context/RestaurantListPageContext";
-import { useContext } from "react";
-import RestaurantComponent from "./RestaurantComponent";
+import styled from 'styled-components';
+import { CATEGORY_ICONS } from '../../../constants/icons';
+import { useRecoilValue } from 'recoil';
+import RestaurantComponent from './RestaurantComponent';
+import { filteredRestaurantsSelector } from '../../../recoil/selectors';
+
 const RestaurantListContainer = styled.ul`
   display: flex;
   flex-direction: column;
@@ -11,16 +12,7 @@ const RestaurantListContainer = styled.ul`
 `;
 
 function RestaurantList() {
-  const {
-    state: { selectedCategory, restaurantsData },
-  } = useContext(RestaurantListPageContext);
-
-  const filteredRestaurants =
-    selectedCategory === "" || selectedCategory === "전체"
-      ? restaurantsData
-      : restaurantsData.filter(
-          (restaurant) => restaurant.category === selectedCategory
-        );
+  const filteredRestaurants = useRecoilValue(filteredRestaurantsSelector);
 
   return (
     <RestaurantListContainer>

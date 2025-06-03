@@ -1,12 +1,13 @@
-import { useState, useContext } from "react";
-import styled from "styled-components";
-import { TEXT } from "../../constants/messages";
-import { ADD_RESTAURANT_CATEGORY_FILTER } from "../../constants/category";
-import { CATEGORY_ICONS } from "../../constants/icons";
-import { getRestaurants, addRestaurant } from "../../api/api";
-import Modal from "../Common/Modal";
-import Button from "../Common/Button";
-import { RestaurantListPageContext } from "../../context/RestaurantListPageContext";
+import { useState } from 'react';
+import styled from 'styled-components';
+import { TEXT } from '../../constants/messages';
+import { ADD_RESTAURANT_CATEGORY_FILTER } from '../../constants/category';
+import { CATEGORY_ICONS } from '../../constants/icons';
+import { getRestaurants, addRestaurant } from '../../api/api';
+import Modal from '../Common/Modal';
+import Button from '../Common/Button';
+import { isAddModalOpenState, restaurantsDataState } from '../../recoil/atoms';
+import { useSetRecoilState } from 'recoil';
 
 const FormItem = styled.div`
   display: flex;
@@ -45,7 +46,7 @@ const FormItemRequired = styled(FormItem)`
   label::after {
     padding-left: 4px;
     color: var(--primary-color);
-    content: "*";
+    content: '*';
   }
 `;
 
@@ -54,12 +55,11 @@ const HelpText = styled.span`
 `;
 
 function AddRestaurantModal() {
-  const {
-    actions: { setIsAddModalOpen, setRestaurantsData },
-  } = useContext(RestaurantListPageContext);
-  const [category, setCategory] = useState("");
-  const [name, setName] = useState("");
-  const [description, setDescription] = useState("");
+  const setIsAddModalOpen = useSetRecoilState(isAddModalOpenState);
+  const setRestaurantsData = useSetRecoilState(restaurantsDataState);
+  const [category, setCategory] = useState('');
+  const [name, setName] = useState('');
+  const [description, setDescription] = useState('');
 
   function handleCloseModal() {
     setIsAddModalOpen(false);
@@ -71,7 +71,7 @@ function AddRestaurantModal() {
     setRestaurantsData(refreshedRestaurant);
   }
 
-  const handleSubmitRestaurantData = (event) => {
+  const handleSubmitRestaurantData = event => {
     event.preventDefault();
 
     const newRestaurant = {
@@ -101,11 +101,11 @@ function AddRestaurantModal() {
             name="category"
             id="category"
             value={category}
-            onChange={(e) => setCategory(e.target.value)}
+            onChange={e => setCategory(e.target.value)}
             required
           >
             <option value="">{TEXT.MODAL_CATEGORY_PLACEHOLDER}</option>
-            {ADD_RESTAURANT_CATEGORY_FILTER.map((category) => (
+            {ADD_RESTAURANT_CATEGORY_FILTER.map(category => (
               <option key={category} value={category}>
                 {category}
               </option>
@@ -123,7 +123,7 @@ function AddRestaurantModal() {
             id="name"
             required
             value={name}
-            onChange={(e) => setName(e.target.value)}
+            onChange={e => setName(e.target.value)}
           />
         </FormItemRequired>
 
@@ -137,14 +137,14 @@ function AddRestaurantModal() {
             cols="30"
             rows="5"
             value={description}
-            onChange={(e) => setDescription(e.target.value)}
+            onChange={e => setDescription(e.target.value)}
           />
           <HelpText className="text-caption">
             {TEXT.MODAL_DESCRIPTION_FOOTER}
           </HelpText>
         </FormItem>
 
-        <Button variant="modal" buttonType="submit">
+        <Button $variant="modal" type="submit">
           {TEXT.MODAL_ADD_BUTTON_TEXT}
         </Button>
       </form>
