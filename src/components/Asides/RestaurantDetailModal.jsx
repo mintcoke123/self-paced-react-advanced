@@ -15,7 +15,7 @@ const RestaurantInfo = styled.div`
 `;
 
 function RestaurantDetailModal() {
-  const selectedRestaurant = useRecoilValue(selectedRestaurantState);
+  const selectedRestaurant = useRecoilValue(selectClickedRestaurant);
   const setIsDetailModalOpen = useSetRecoilState(isDetailModalOpenState);
 
   return (
@@ -29,7 +29,7 @@ function RestaurantDetailModal() {
         </Body>
       </RestaurantInfo>
       <Button
-        variant="modal"
+        $variant="modal"
         onClick={() => setIsDetailModalOpen(false)}
         type="button"
       >

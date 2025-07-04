@@ -8,6 +8,8 @@ import Modal from '../Common/Modal';
 import Button from '../Common/Button';
 import { isAddModalOpenState, restaurantsDataState } from '../../recoil/atoms';
 import { useSetRecoilState } from 'recoil';
+import { v4 as uuidv4 } from 'uuid';
+
 
 const FormItem = styled.div`
   display: flex;
@@ -75,7 +77,7 @@ function AddRestaurantModal() {
     event.preventDefault();
 
     const newRestaurant = {
-      id: Date.now(),
+      id: uuidv4(),
       category,
       name,
       description,
@@ -144,7 +146,7 @@ function AddRestaurantModal() {
           </HelpText>
         </FormItem>
 
-        <Button variant="modal" buttonType="submit">
+        <Button $variant="modal" type="submit">
           {TEXT.MODAL_ADD_BUTTON_TEXT}
         </Button>
       </form>
