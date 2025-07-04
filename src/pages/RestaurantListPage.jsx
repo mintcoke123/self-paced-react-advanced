@@ -12,6 +12,7 @@ function RestaurantListPage() {
     dispatch(fetchRestaurantsData());
   }, [dispatch]);
 
+
   return (
     <>
       <Header />

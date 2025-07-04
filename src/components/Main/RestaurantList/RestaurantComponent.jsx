@@ -3,6 +3,7 @@ import { useDispatch } from 'react-redux';
 import { setDetailModalOpen } from '../../../store/slices/modalSlice';
 import { setSelectedRestaurantId } from '../../../store/slices/restaurantSlice';
 
+
 const Restaurant = styled.li`
   display: flex;
   align-items: flex-start;
@@ -54,11 +55,13 @@ function RestaurantComponent({
   name,
   description,
 }) {
+
   const dispatch = useDispatch();
 
   const handleSelectRestaurantClick = () => {
     dispatch(setSelectedRestaurantId(id));
     dispatch(setDetailModalOpen(true));
+
   };
 
   return (

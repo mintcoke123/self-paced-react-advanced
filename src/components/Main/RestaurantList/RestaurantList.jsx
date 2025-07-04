@@ -4,6 +4,7 @@ import RestaurantComponent from './RestaurantComponent';
 import { useSelector } from 'react-redux';
 import { filteredRestaurantsSelector } from '../../../store/selectors/restaurantSelectors';
 
+
 const RestaurantListContainer = styled.ul`
   display: flex;
   flex-direction: column;
@@ -12,7 +13,9 @@ const RestaurantListContainer = styled.ul`
 `;
 
 function RestaurantList() {
+
   const filteredRestaurants = useSelector(filteredRestaurantsSelector);
+
 
   return (
     <RestaurantListContainer>

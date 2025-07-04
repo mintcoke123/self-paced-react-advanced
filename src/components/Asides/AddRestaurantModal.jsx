@@ -9,6 +9,7 @@ import Button from '../Common/Button';
 import { useDispatch } from 'react-redux';
 import { setAddModalOpen } from '../../store/slices/modalSlice';
 import { v4 as uuidv4 } from 'uuid';
+3
 
 const FormItem = styled.div`
   display: flex;
@@ -56,7 +57,9 @@ const HelpText = styled.span`
 `;
 
 function AddRestaurantModal() {
+
   const dispatch = useDispatch();
+
   const [category, setCategory] = useState('');
   const [name, setName] = useState('');
   const [description, setDescription] = useState('');
@@ -64,6 +67,8 @@ function AddRestaurantModal() {
   function handleCloseModal() {
     dispatch(setAddModalOpen(false));
   }
+
+
 
   const handleSubmitRestaurantData = event => {
     event.preventDefault();

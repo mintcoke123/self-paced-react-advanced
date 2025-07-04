@@ -4,6 +4,7 @@ import { TEXT } from '../../constants/messages';
 import { useDispatch, useSelector } from 'react-redux';
 import { setSelectedCategory } from '../../store/slices/restaurantSlice';
 
+
 const CategoryFilterContainer = styled.section`
   display: flex;
   justify-content: space-between;
@@ -22,11 +23,13 @@ const CategorySelect = styled.select`
 `;
 
 function CategoryFilter() {
+
   const dispatch = useDispatch();
   const { selectedCategory } = useSelector(state => state.restaurant);
 
   const handleChangeCategory = event => {
     dispatch(setSelectedCategory(event.target.value));
+
   };
 
   return (
