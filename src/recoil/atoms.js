@@ -15,12 +15,16 @@ export const isDetailModalOpenState = atom({
   default: false,
 });
 
+
 export const selectedRestaurantIdState = atom({
   key: 'selectedRestaurantId',
   default: '',
+
 });
 
 export const selectedCategoryState = atom({
   key: 'selectedCategory',
+
   default: '전체',
+
 });

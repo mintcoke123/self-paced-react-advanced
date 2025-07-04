@@ -4,9 +4,11 @@ import Modal from '../Common/Modal';
 import Button from '../Common/Button';
 import { Body } from '../Common/Typography';
 import { Caption } from '../Common/Typography';
-import { isDetailModalOpenState } from '../../recoil/atoms';
+import {
+  selectedRestaurantState,
+  isDetailModalOpenState,
+} from '../../recoil/atoms';
 import { useRecoilValue, useSetRecoilState } from 'recoil';
-import { selectClickedRestaurant } from '../../recoil/selectors';
 
 const RestaurantInfo = styled.div`
   margin-bottom: 24px;

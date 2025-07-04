@@ -10,6 +10,7 @@ import { isAddModalOpenState, restaurantsDataState } from '../../recoil/atoms';
 import { useSetRecoilState } from 'recoil';
 import { v4 as uuidv4 } from 'uuid';
 
+
 const FormItem = styled.div`
   display: flex;
   flex-direction: column;

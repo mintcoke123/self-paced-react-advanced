@@ -1,8 +1,11 @@
 import styled from 'styled-components';
-import { useSetRecoilState } from 'recoil';
-import {
+
+import { useRecoilValue, useSetRecoilState } from 'recoil';
+
+  selectedRestaurantState,
   isDetailModalOpenState,
-  selectedRestaurantIdState,
+  restaurantsDataState,
+
 } from '../../../recoil/atoms';
 
 const Restaurant = styled.li`
@@ -59,8 +62,13 @@ function RestaurantComponent({
   const setSelectedRestaurantId = useSetRecoilState(selectedRestaurantIdState);
   const setIsDetailModalOpen = useSetRecoilState(isDetailModalOpenState);
 
-  const handleSelectRestaurantClick = () => {
-    setSelectedRestaurantId(id);
+
+  function selectClickedRestaurant(id) {
+    const clickedRestaurant = restaurantsData.find(
+      restaurant => restaurant.id === id
+    );
+
+    setSelectedRestaurant(clickedRestaurant);
     setIsDetailModalOpen(true);
   };
 

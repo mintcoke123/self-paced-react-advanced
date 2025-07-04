@@ -16,7 +16,9 @@ const variants = {
 };
 
 const Button = styled.button`
+
   ${({ $variant = 'modal' }) => variants[$variant] || variants.modal};
+
 
   border: none;
   border-radius: 8px;
