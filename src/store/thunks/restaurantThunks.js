@@ -5,8 +5,7 @@ export const fetchRestaurantsData = createAsyncThunk(
   'restaurant/fetchRestaurantsData',
   async (_, thunkAPI) => {
     try {
-      const data = await getRestaurants();
-      return data;
+      return await getRestaurants();
     } catch (error) {
       return alert('레스토랑 데이터를 불러오지 못했습니다.');
     }
