@@ -3,10 +3,10 @@ import { getRestaurants, addRestaurant } from '../../api/api';
 
 export const fetchRestaurantsData = createAsyncThunk(
   'restaurant/fetchRestaurantsData',
-  async (_, thunkAPI) => {
+  async () => {
     try {
       return await getRestaurants();
-    } catch (error) {
+    } catch {
       return alert('레스토랑 데이터를 불러오지 못했습니다.');
     }
   }
@@ -14,11 +14,11 @@ export const fetchRestaurantsData = createAsyncThunk(
 
 export const postRestaurantData = createAsyncThunk(
   'restaurant/postRestaurantData',
-  async (newRestaurant, thunkAPI) => {
+  async newRestaurant => {
     try {
       await addRestaurant(newRestaurant);
       return newRestaurant;
-    } catch (error) {
+    } catch {
       return alert('레스토랑 데이터를 추가하지 못했습니다.');
     }
   }
