@@ -1,8 +1,10 @@
 import styled from 'styled-components';
 import { RESTAURANT_CATEGORY_FILTER } from '../../constants/category';
 import { TEXT } from '../../constants/messages';
+
 import { useDispatch, useSelector } from 'react-redux';
 import { setSelectedCategory } from '../../store/slices/restaurantSlice';
+
 
 const CategoryFilterContainer = styled.section`
   display: flex;
@@ -27,6 +29,7 @@ function CategoryFilter() {
 
   const handleChangeCategory = event => {
     dispatch(setSelectedCategory(event.target.value));
+
   };
 
   return (

@@ -56,7 +56,9 @@ const HelpText = styled.span`
 `;
 
 function AddRestaurantModal() {
+
   const dispatch = useDispatch();
+
   const [category, setCategory] = useState('');
   const [name, setName] = useState('');
   const [description, setDescription] = useState('');
@@ -64,6 +66,7 @@ function AddRestaurantModal() {
   function handleCloseModal() {
     dispatch(setAddModalOpen(false));
   }
+
 
   const handleSubmitRestaurantData = event => {
     event.preventDefault();
